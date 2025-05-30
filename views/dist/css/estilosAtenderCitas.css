@@ -1,0 +1,391 @@
+#accordion .card {
+    margin-bottom: 2px;
+    /* Espacio mínimo entre acordeones */
+    border-radius: 5px;
+    /* Bordes más compactos */
+}
+
+#accordion .card-header {
+    padding: 3px 8px;
+    /* Reduce el tamaño del encabezado */
+    font-size: 14px;
+    /* Opcional: hacer el texto más pequeño */
+}
+
+#accordion .card-body {
+    padding: 3px;
+    /* Reduce el espacio interno del contenido */
+    font-size: 13px;
+    /* Opcional: reducir el tamaño del texto */
+}
+
+#accordion .card-title a {
+    font-size: 14px;
+    /* Opcional: ajustar tamaño de los títulos */
+}
+
+
+
+#accordion_familiares .card {
+    margin-bottom: 2px;
+    /* Espacio mínimo entre acordeones */
+    border-radius: 5px;
+    /* Bordes más compactos */
+}
+
+#accordion_familiares .card-header {
+    padding: 3px 8px;
+    /* Reduce el tamaño del encabezado */
+    font-size: 14px;
+    /* Opcional: hacer el texto más pequeño */
+}
+
+#accordion_familiares .card-body {
+    padding: 3px;
+    /* Reduce el espacio interno del contenido */
+    font-size: 13px;
+    /* Opcional: reducir el tamaño del texto */
+}
+
+#accordion_familiares .card-title a {
+    font-size: 14px;
+    /* Opcional: ajustar tamaño de los títulos */
+}
+
+/* Estilos generales */
+
+.card-header {
+    background: #f8f8f8;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.card-body {
+    padding: 15px;
+}
+
+.info-colores {
+    display: flex;
+    gap: 15px;
+    justify-content: flex-end;
+    margin-bottom: 15px;
+}
+
+
+.info-item {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+}
+
+.color-box {
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+    margin-right: 5px;
+    border-radius: 3px;
+}
+
+.info-estado-por-hacer {
+    background-color: red;
+}
+
+.info-estado-encontrado {
+    background-color: blue;
+}
+
+.info-estado-realizado {
+    background-color: deepskyblue;
+}
+
+/* Contenedor del odontograma */
+.odontograma-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.fila {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    width: 100%;
+}
+
+.odontograma {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    justify-content: center;
+}
+
+/* Cada diente */
+.diente {
+    background-color: white;
+    position: relative;
+    width: 60px;
+    /* Aumentamos la altura para acomodar el SVG y las carillas */
+    height: 120px;
+    text-align: center;
+    font-weight: bold;
+    border: 1px solid #ccc;
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+.diente-numero {
+    font-size: 14px;
+    margin-bottom: 3px;
+}
+
+/* SVG del diente */
+.diente svg {
+    width: 100%;
+    height: 50px;
+}
+
+/* Estilo para las caras del diente */
+.cara {
+    fill: white;
+    stroke: black;
+    stroke-width: 1px;
+    cursor: pointer;
+}
+
+.seleccionado {
+    fill: yellow !important;
+}
+
+.cara.estado-por-hacer {
+    fill: red !important;
+}
+
+.cara.estado-encontrado {
+    fill: blue !important;
+}
+
+.cara.estado-realizado {
+    fill: deepskyblue !important;
+}
+
+.cara.estado-vacio {
+    fill: white !important;
+}
+
+
+
+/* Container de carillas (las 6) */
+/* Container de carillas */
+.carillas {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* 3 columnas */
+    /*    gap: 5px;  */
+    /* Espaciado reducido entre carillas */
+    justify-items: center;
+    margin-top: 5px;
+    margin-inline: -4px;
+}
+
+/* Cada carilla */
+.carilla {
+    width: 18px;
+    /* Tamaño reducido */
+    height: 17px;
+    /* Tamaño reducido */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border: 1px solid #000;
+    border-radius: 2px;
+    font-size: 10px;
+    /* Fuente más pequeña para que encaje */
+    cursor: pointer;
+}
+
+.carilla.seleccionado {
+    background-color: yellow;
+    font-weight: bold;
+    color: black;
+    border-color: orange;
+}
+
+/* Estados de carillas */
+.carilla.estado-por-hacer {
+    background-color: red;
+    font-weight: bold;
+}
+
+.carilla.estado-encontrado {
+    background-color: blue;
+    font-weight: bold;
+}
+
+.carilla.estado-realizado {
+    background-color: deepskyblue;
+    font-weight: bold;
+}
+
+.carilla.estado-vacio {
+    background-color: white;
+    font-weight: bold;
+}
+
+
+
+
+
+
+
+
+
+.odontograma-layout {
+    display: flex;
+    align-items: flex-start;
+}
+
+.leyenda-referencia {
+    width: 220px;
+    text-align: left;
+    margin-right: 20px;
+}
+
+.leyenda {
+    margin-bottom: 20px;
+}
+
+.leyenda-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.arrow {
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+.diente-referencia {
+    text-align: start;
+    position: relative;
+}
+
+.diente-svg {
+    width: 100px;
+    height: 100px;
+    overflow: visible;
+}
+
+polygon {
+    fill: lightgray;
+    stroke: black;
+    stroke-width: 1;
+}
+
+.etiqueta {
+    font-size: 10px;
+    font-weight: bold;
+    fill: black;
+    text-anchor: middle;
+}
+
+.flecha {
+    stroke: black;
+    stroke-width: 1;
+    marker-end: url(#arrowhead);
+}
+
+svg defs {
+    marker {
+        id: arrowhead;
+        markerWidth: 5;
+        markerHeight: 5;
+        refX: 5;
+        refY: 2.5;
+        orient: auto;
+    }
+
+    path {
+        d: M0, 0 L5, 2.5 L0, 5 Z;
+        fill: black;
+    }
+
+
+}
+
+
+.antecedente {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.antecedente label:first-child {
+    flex: 1;
+}
+
+.antecedente label input {
+    margin-left: 10px;
+}
+
+
+
+.antecedentefm {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.antecedentefm label:first-child {
+    flex: 1;
+}
+
+.antecedentefm label input {
+    margin-left: 10px;
+}
+
+
+
+
+.antecedenteesto {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.antecedenteesto label:first-child {
+    flex: 1;
+}
+
+.antecedenteesto label input {
+    margin-left: 10px;
+}
+
+
+
+
+
+.pie {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.pie label:first-child {
+    flex: 1;
+}
+
+.pie label input {
+    margin-left: 10px;
+}

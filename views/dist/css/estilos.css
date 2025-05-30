@@ -1,0 +1,56 @@
+.title-orden-card{
+    border-bottom: 1px solid rgb(7, 56, 218);
+    width: 50%;
+    margin-bottom: 14px;
+}
+
+.doctores:hover{
+    background-color: #6c6c757d;
+    color: white;
+    transition: all 0.8s ease;
+}
+
+.doctores{
+    transition: all 0.8s ease;
+}
+
+.select-doctor{
+    background-color: #3d9970;
+    color: white;
+    border: none;
+    transition: all 0.1s ease;
+}
+
+.table-doctor{
+    height: 150px;
+    overflow: auto;
+}
+
+.loader {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+  background: linear-gradient(0deg, rgba(255, 61, 0, 0.2) 33%, #ff3d00 100%);
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+.loader::after {
+  content: '';  
+  box-sizing: border-box;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  /* background: #263238; */
+  background: #fff;
+}
+
+@keyframes rotation {
+  0% { transform: rotate(0deg) }
+  100% { transform: rotate(360deg)}
+} 
