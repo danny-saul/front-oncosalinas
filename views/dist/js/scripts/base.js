@@ -8,6 +8,11 @@ const Telefono_Empresa = "0959682726 - 0964190101 "
 /* 
 const urlServidor = "http://127.0.0.1:8000/api/";
  */
+
+// Fecha de vencimiento fija (formato YYYY-MM-DD HH:mm:ss)
+const FechaVencimientoSistema = "2025-06-07 23:59:59";
+
+
 const year = [
     {
         year: 2024,
