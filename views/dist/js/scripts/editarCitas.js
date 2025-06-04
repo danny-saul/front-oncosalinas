@@ -2423,32 +2423,48 @@ function listar_resumen() {
                         <p>Motivo Consulta: ${cita.historial_clinico && cita.historial_clinico[0] ? cita.historial_clinico[0].motivo_consulta : 'No hay historial clínico definido'}</p>
                         <p>Antecedentes: ${cita.historial_clinico && cita.historial_clinico[0] ? cita.historial_clinico[0].antecedentes : 'No hay historial clínico definido'}</p>
                         <p>Problema Actual: ${cita.historial_clinico && cita.historial_clinico[0] ? cita.historial_clinico[0].enfermedad_actual : 'No hay historial clínico definido'}</p>
-                        <p>Diagnóstico Definitivo:</p>
-                        ${cita.receta && cita.receta.length > 0 && cita.receta[0].receta_diagnostico && cita.receta[0].receta_diagnostico.length > 0 ?
-              `<ul>${cita.receta[0].receta_diagnostico
-                .filter(diagnostico => diagnostico.tipo_diagnostico_id === 1)
-                .map(diagnostico => `<li>${diagnostico.diagnosticocie10.descripcion}</li>`)
-                .join('')}</ul>` : '<p></p>'}
+                       <p>Diagnóstico Definitivo:</p>
+${cita.receta && cita.receta.length > 0 && cita.receta[0].receta_diagnostico ?
+  (() => {
+    const definitivos = cita.receta[0].receta_diagnostico
+      .filter(d => d.tipo_diagnostico_id === 1 && d.estado === "A");
+    return definitivos.length > 0
+      ? `<ul>${definitivos.map(d => `<li>${d.diagnosticocie10.descripcion}</li>`).join('')}</ul>`
+      : '<p></p>';
+  })()
+: '<p></p>'}
 
-                           ${cita.receta_diagnostico && cita.receta_diagnostico.length > 0 ?
-              `<ul>${cita.receta_diagnostico
-                .filter(diagnostico => diagnostico.tipo_diagnostico_id === 1)
-                .map(diagnostico => `<li>${diagnostico.diagnosticocie10.descripcion}</li>`)
-                .join('')}</ul>` : '<p></p>'
-            }    
-                        <p>Diagnóstico Presuntivo:</p>
-                        ${cita.receta && cita.receta.length > 0 && cita.receta[0].receta_diagnostico && cita.receta[0].receta_diagnostico.length > 0 ?
-              `<ul>${cita.receta[0].receta_diagnostico
-                .filter(diagnostico => diagnostico.tipo_diagnostico_id === 2)
-                .map(diagnostico => `<li>${diagnostico.diagnosticocie10.descripcion}</li>`)
-                .join('')}</ul>` : '<p></p>'}
+${cita.receta_diagnostico ?
+  (() => {
+    const definitivosExtra = cita.receta_diagnostico
+      .filter(d => d.tipo_diagnostico_id === 1 && d.estado === "A");
+    return definitivosExtra.length > 0
+      ? `<ul>${definitivosExtra.map(d => `<li>${d.diagnosticocie10.descripcion}</li>`).join('')}</ul>`
+      : '<p></p>';
+  })()
+: '<p></p>'}
 
-                            ${cita.receta_diagnostico && cita.receta_diagnostico.length > 0 ?
-              `<ul>${cita.receta_diagnostico
-                .filter(diagnostico => diagnostico.tipo_diagnostico_id === 2)
-                .map(diagnostico => `<li>${diagnostico.diagnosticocie10.descripcion}</li>`)
-                .join('')}</ul>` : '<p></p>'
-            }
+<p>Diagnóstico Presuntivo:</p>
+${cita.receta && cita.receta.length > 0 && cita.receta[0].receta_diagnostico ?
+  (() => {
+    const presuntivos = cita.receta[0].receta_diagnostico
+      .filter(d => d.tipo_diagnostico_id === 2 && d.estado === "A");
+    return presuntivos.length > 0
+      ? `<ul>${presuntivos.map(d => `<li>${d.diagnosticocie10.descripcion}</li>`).join('')}</ul>`
+      : '<p></p>';
+  })()
+: '<p></p>'}
+
+${cita.receta_diagnostico ?
+  (() => {
+    const presuntivosExtra = cita.receta_diagnostico
+      .filter(d => d.tipo_diagnostico_id === 2 && d.estado === "A");
+    return presuntivosExtra.length > 0
+      ? `<ul>${presuntivosExtra.map(d => `<li>${d.diagnosticocie10.descripcion}</li>`).join('')}</ul>`
+      : '<p></p>';
+  })()
+: '<p></p>'}
+
 
                   <p>Receta:</p>
               ${cita.ultima_receta && cita.ultima_receta.receta_detalle && cita.ultima_receta.receta_detalle.length > 0
@@ -2472,19 +2488,23 @@ function listar_resumen() {
                 : '<p>No hay órdenes de imágenes disponibles en estado </p>'}
 
                                           
-              <p>Orden de laboratorio:</p>
-                ${cita.ultima_orden_lab && cita.ultima_orden_lab.laboratorio_detalle?.length > 0 ?
-              `<ul>
-                    ${cita.ultima_orden_lab.laboratorio_detalle
-                .map(detalle => `
-                        <li>
-                          Código: ${detalle.tipo_examen.codigo_lab} - ${detalle.tipo_examen.descripcion_lab} -  RR: ${detalle.resultado_examen}<br>
-                       
-                        </li>`)
-                .join('')}
-                  </ul>` :
-              '<p>No hay detalles de la última orden de laboratorio disponibles</p>'
-            }
+       <p>Orden de laboratorio:</p>
+${cita.ultima_orden_lab && cita.ultima_orden_lab.laboratorio_detalle?.length > 0 ?
+  (() => {
+    const detallesActivos = cita.ultima_orden_lab.laboratorio_detalle
+      .filter(detalle => detalle.estado === "A");
+    return detallesActivos.length > 0
+      ? `<ul>
+          ${detallesActivos.map(detalle => `
+            <li>
+              Código: ${detalle.tipo_examen.codigo_lab} - ${detalle.tipo_examen.descripcion_lab} - RR: ${detalle.resultado_examen}
+            </li>
+          `).join('')}
+        </ul>`
+      : '<p>No hay detalles activos de la última orden de laboratorio</p>';
+  })()
+: '<p>No hay detalles de la última orden de laboratorio disponibles</p>'}
+
 
 
                       </div>

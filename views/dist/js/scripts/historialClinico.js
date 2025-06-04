@@ -30,7 +30,7 @@ function dt_listarpaciente() {
             }
         },
         destroy: true,
-        "iDisplayLength": 5,//Paginación
+        "iDisplayLength": 8,//Paginación
         "language": {
             "sProcessing": "Procesando...",
             "sLengthMenu": "Mostrar _MENU_ registros",
