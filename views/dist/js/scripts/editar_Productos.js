@@ -13,7 +13,7 @@ function init() {
 
  
 function cargarCategoria() {
-    $.ajax({
+    peticionJWT({
         url: urlServidor + 'categoria/listar_categorias',
         type: 'GET',
         dataType: 'json',
@@ -44,7 +44,7 @@ function cargarCategoria() {
 }
 
 function recuperar_Presentacion() {
-    $.ajax({
+    peticionJWT({
         // la URL para la petición
         url: urlServidor + 'categoria/listar_presentacion',
         // especifica si será una petición POST o GET
@@ -84,7 +84,7 @@ function cargarProducto() {
     let id = localStorage.getItem('producto_id');
     console.log(id);
  
-    $.ajax({
+    peticionJWT({
         // la URL para la petición
         url: urlServidor + 'producto/listar/' + id,
         // especifica si será una petición POST o GET
@@ -178,7 +178,7 @@ function editandoproducto() {
         };
         console.log(json);
      
-         $.ajax({
+         peticionJWT({
             // la URL para la petición
             url: urlServidor + 'producto/editar',
             type: 'POST',

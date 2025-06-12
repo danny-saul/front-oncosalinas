@@ -3,8 +3,45 @@ var tabla;
 _init();
 function _init() {
     dt_listarpacienterevision();
-    //imprimir();
+    storage_paciente();
 }
+
+
+function storage_paciente() {
+  let paciente_id = localStorage.getItem('paciente_id');
+
+  peticionJWT({
+    // la URL para la petición
+    url: urlServidor + 'paciente/listarid/' + paciente_id,
+    // especifica si será una petición POST o GET
+    type: 'GET',
+    // el tipo de información que se espera de respuesta
+    dataType: 'json',
+    beforeSend: function (xhr) {
+      // Envía el token JWT en el encabezado Authorization
+      let token = localStorage.getItem('token');
+      if (token) {
+        xhr.setRequestHeader('Authorization', 'Bearer ' + token);
+      }
+    },
+    success: function (response) {
+        console.log(response);
+      if (response.status) {
+ 
+        $('#nombre-paciente').text(response.paciente.nombre + ' ' + response.paciente.apellido);
+ 
+      }
+    },
+    error: function (jqXHR, status, error) {
+      console.log('Disculpe, existió un problema');
+    },
+    complete: function (jqXHR, status) {
+      // console.log('Petición realizada');
+    }
+  });
+}
+
+
 
 function dt_listarpacienterevision() {
       let paciente_id = localStorage.getItem('paciente_id');

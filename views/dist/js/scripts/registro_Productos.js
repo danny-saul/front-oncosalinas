@@ -15,7 +15,7 @@ $(function () {
 
 
 function seleccionar_Categorias() {
-    $.ajax({
+    peticionJWT({
         // la URL para la petición
         url: urlServidor + 'categoria/listar_categorias',
         // especifica si será una petición POST o GET
@@ -51,7 +51,7 @@ function seleccionar_Categorias() {
 }
 
 function recuperar_Categorias() {
-    $.ajax({
+    peticionJWT({
         // la URL para la petición
         url: urlServidor + 'categoria/listar_categorias',
         // especifica si será una petición POST o GET
@@ -88,7 +88,7 @@ function recuperar_Categorias() {
 
 
 function seleccionar_Presentacion() {
-    $.ajax({
+    peticionJWT({
         // la URL para la petición
         url: urlServidor + 'categoria/listar_presentacion',
         // especifica si será una petición POST o GET
@@ -123,7 +123,7 @@ function seleccionar_Presentacion() {
     });
 }
 function recuperar_Presentacion() {
-    $.ajax({
+    peticionJWT({
         // la URL para la petición
         url: urlServidor + 'categoria/listar_presentacion',
         // especifica si será una petición POST o GET
@@ -248,7 +248,7 @@ function validarProducto(json) {
 
 function guardando_producto(json) {
 
-    $.ajax({
+    peticionJWT({
         url: urlServidor + 'producto/guardar_prod2',
         type: 'POST',
         data: 'data=' + JSON.stringify(json),
@@ -295,7 +295,7 @@ function guardando_producto(json) {
         let formData = new FormData();
         formData.append('fichero', imagen);
 
-        $.ajax({
+        peticionJWT({
             // la URL para la petición
             url: urlServidor + 'producto/subirImagenes',
             // especifica si será una petición POST o GET

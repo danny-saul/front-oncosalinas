@@ -84,7 +84,7 @@ function subir_pdf(id){
 function cargarOrden(id) {
    // let token = JSON.parse(localStorage.getItem('token'));
 
-    $.ajax({
+    peticionJWT({
         url: urlServidor + 'laboratorio/listar/' + id,
         type: 'GET',
         dataType: 'json',
@@ -157,7 +157,7 @@ function editarItems(id){
 function cargarItems(id){
      // alert(id);
 
-      $.ajax({
+      peticionJWT({
         url: urlServidor + 'laboratorio/detallexId/' + id,
         type: 'GET',
         dataType: 'json',
@@ -213,7 +213,7 @@ function cargarItems(id){
     
             console.log(json);
     
-            $.ajax({
+            peticionJWT({
                 // la URL para la petición
                 url: urlServidor + 'laboratorio/guardarDetalleItems',
                 type: 'POST',
@@ -317,7 +317,7 @@ function editandoOrdenModal() {
 
         console.log(json);
 
-        $.ajax({
+        peticionJWT({
             // la URL para la petición
             url: urlServidor + 'laboratorio/editar',
             type: 'POST',
@@ -369,7 +369,7 @@ function editandoOrdenModal() {
             let formData = new FormData();
             formData.append('fichero', documento);
     
-            $.ajax({
+            peticionJWT({
                 // la URL para la petición
                 url: urlServidor + 'ordenes/subirestudio',
                 // especifica si será una petición POST o GET
@@ -411,7 +411,7 @@ function editandoOrdenModal() {
 }
 
 function cargarDiagnostico() {
-    $.ajax({
+    peticionJWT({
         url: urlServidor + 'diagnostico/listar',
         type: 'GET',
         dataType: 'json',
@@ -467,7 +467,7 @@ function agregarDiagnosticos1() {
         });
     
         } else {
-          $.ajax({
+          peticionJWT({
         // la URL para la petición
         url: urlServidor + "diagnostico/listar/" + diagnosticocie10_id,
   

@@ -1,10 +1,9 @@
-let doctor_id = $('#select-doctor').val();
 var tabla;
 _init();
 
 function _init() {
     seleccionar_doctor();
-  //  cargarUsuario();
+    cargarUsuario();
     guardarHorarioAtencion();
     cargarDoctorH();
    // cargarHorariosDoctor();
@@ -13,6 +12,11 @@ function _init() {
 
 
 
+function cargarUsuario2() {
+    let usuario = JSON.parse(localStorage.getItem('sesion'));
+    let nombres = usuario.persona.nombre + ' ' + usuario.persona.apellido;
+    $('#usuario-md').val(nombres);
+}
 
 
 function seleccionar_doctor() {
@@ -49,6 +53,12 @@ function seleccionar_doctor() {
 }
 
 
+function cargarUsuario() {
+    let usuario = JSON.parse(localStorage.getItem('sesion'));
+    let nombres = usuario.persona.nombre + ' ' + usuario.persona.apellido;
+    $('#usuario-md').val(nombres);
+}
+
 
 
 /** INICIO DE HORAS CON FULL CAL4NDAR*/
@@ -58,19 +68,15 @@ function seleccionar_doctor() {
     e.preventDefault();
 
     let usuario_id = JSON.parse(localStorage.getItem('sesion')).id;
-    let doctor_id  = $('#select-doctor').val();
+    let doctor_id =  JSON.parse(localStorage.getItem('sesion-2'));
 
     let intervalo = $('#select-intervalo').val();
 
-      if (!doctor_id || doctor_id === '0') {
-      return Swal.fire({ title: 'Seleccione un doctor', icon: 'error' });
-    }
-
+  
     if (!intervalo || intervalo === '0') {
       return Swal.fire({ title: 'Seleccione un intervalo', icon: 'error' });
     }
 
- 
     // Construir el objeto horarios con los inputs dinámicos por día
     let horarios = {};
     let diasSeleccionados = $('.dia-semana:checked').map(function () {
@@ -204,8 +210,8 @@ function cargarDoctorH() {
 
 
 
-function cargarHorarioExistente(doctor_id) {
-  //  let doctor_id = JSON.parse(localStorage.getItem('sesion-2'));
+function cargarHorarioExistente() {
+    let doctor_id = JSON.parse(localStorage.getItem('sesion-2'));
 
   peticionJWT({
     url: urlServidor + 'doctor_horario/obtenerhorasedicion/' + doctor_id,
@@ -252,8 +258,8 @@ function cargarHorarioExistente(doctor_id) {
   });
 }
 
-function cargarHorarioExistente2(doctor_id) {
-    //let doctor_id = JSON.parse(localStorage.getItem('sesion-2'));
+function cargarHorarioExistente2() {
+    let doctor_id = JSON.parse(localStorage.getItem('sesion-2'));
 
   peticionJWT({
     url: urlServidor + 'doctor_horario/obtenerhorasedicion/' + doctor_id,
@@ -303,17 +309,16 @@ function cargarHorarioExistente2(doctor_id) {
 
 
 
-
+/* 
 $('#select-doctor').change(function () {
   const doctor_id = $(this).val();
   if (doctor_id) {
     cargarHorarioExistente(doctor_id);
-    cargarHorarioExistente2(doctor_id);
   }
 });
 
 
- 
+ */
 
 
 

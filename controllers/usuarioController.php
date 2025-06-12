@@ -29,18 +29,24 @@ class UsuarioController
         } 
     }
 
-    public function editarUsuario()
-    {
-        $dataPost = isset($_POST['data']);
+
+
+ public function editarUsuario()
+{
+
+         $dataPost = isset($_POST['data']);
 
         if(!$dataPost) {
       //  include_once 'views/contents/consultarcitas.php';
-      include_once 'views/contents/editar_usuario.php';
      
+        include_once 'views/contents/editar_usuario.php';
         }else{
             echo 'no hay token por post';
         } 
-    }
+
+
+ 
+}
 
     public function editarPaciente()
     {
@@ -81,7 +87,7 @@ class UsuarioController
         });
     }else{//no hay token y nunca ingresa a la ruta
     //    alert('no hay token');
-        window.location = urlCliente + 'views/pages/404.php';
+        window.location = urlCliente + 'login';
         
     }
 </script>

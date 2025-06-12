@@ -27,7 +27,7 @@ $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
 
 function cargarAntecedentesOdPer() {
     let id = localStorage.getItem('citas_id');
-    $.ajax({
+    peticionJWT({
         url: urlServidor + 'citas/listarcitasxid/' + id,
         type: 'GET',
         dataType: 'json',
@@ -42,7 +42,7 @@ function cargarAntecedentesOdPer() {
                 let paciente_id = response.citas.paciente_id;
                 
                 // Obtener antecedentes
-                $.ajax({
+                peticionJWT({
                     url: urlServidor + 'odontoantecedente/obtener-antecedentes/' + paciente_id,
                     method: 'GET',
                     beforeSend: function (xhr) {
@@ -96,7 +96,7 @@ $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
 
 function guardarAntecedentesPerOd() {
     let id = localStorage.getItem('citas_id');
-    $.ajax({
+    peticionJWT({
         url: urlServidor + 'citas/listarcitasxid/' + id,
         type: 'GET',
         dataType: 'json',
@@ -141,7 +141,7 @@ function guardarAntecedentesPerOd() {
                     }
 
                     // Realizar la solicitud AJAX para cada antecedente
-                  $.ajax({
+                  peticionJWT({
     url: urlServidor + 'odontoantecedente/guardar', // sin slash final
     method: 'POST',
     beforeSend: function (xhr) {
@@ -212,7 +212,7 @@ $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
 
 function guardarAntecedentesFamiliaresOd() {
     let id = localStorage.getItem('citas_id');
-    $.ajax({
+    peticionJWT({
         url: urlServidor + 'citas/listarcitasxid/' + id,
         type: 'GET',
         dataType: 'json',
@@ -254,7 +254,7 @@ function guardarAntecedentesFamiliaresOd() {
         return;
     }
 
-    $.ajax({
+    peticionJWT({
         url: urlServidor + 'odontoantecedente/guardarAFamiliares',
         method: 'POST',
         beforeSend: function (xhr) {
@@ -323,7 +323,7 @@ $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
 
 function cargarAntecedentesOdFam() {
     let id = localStorage.getItem('citas_id');
-    $.ajax({
+    peticionJWT({
         url: urlServidor + 'citas/listarcitasxid/' + id,
         type: 'GET',
         dataType: 'json',
@@ -338,7 +338,7 @@ function cargarAntecedentesOdFam() {
                 let paciente_id = response.citas.paciente_id;
                 
                 // Obtener antecedentes
-                $.ajax({
+                peticionJWT({
                     url: urlServidor + 'odontoantecedente/obtener-antecedentesFam/' + paciente_id,
                     method: 'GET',
                     beforeSend: function (xhr) {
@@ -408,7 +408,7 @@ $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
 
 function guardarAntecedentesEstomatognaticoOd() {
     let id = localStorage.getItem('citas_id');
-    $.ajax({
+    peticionJWT({
         url: urlServidor + 'citas/listarcitasxid/' + id,
         type: 'GET',
         dataType: 'json',
@@ -448,7 +448,7 @@ function guardarAntecedentesEstomatognaticoOd() {
                         return;
                     }
 
-                    $.ajax({
+                    peticionJWT({
                         url: urlServidor + 'odontoantecedente/guardarAesto',
                         method: 'POST',
                         beforeSend: function (xhr) {
@@ -513,7 +513,7 @@ $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
 
 function cargarAntecedentesOdEsto() {
     let id = localStorage.getItem('citas_id');
-    $.ajax({
+    peticionJWT({
         url: urlServidor + 'citas/listarcitasxid/' + id,
         type: 'GET',
         dataType: 'json',
@@ -528,7 +528,7 @@ function cargarAntecedentesOdEsto() {
                 let paciente_id = response.citas.paciente_id;
                 
                 // Obtener antecedentes
-                $.ajax({
+                peticionJWT({
                     url: urlServidor + 'odontoantecedente/obtener-antecedentesEsto/' + paciente_id,
                     method: 'GET',
                     beforeSend: function (xhr) {

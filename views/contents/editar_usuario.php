@@ -382,4 +382,8 @@
 </div>
 </div>
 
+
+<script src="<?= BASE ?>views/dist/js/scripts/peticionJWT.js"></script>
+
+
 <script src="<?=BASE?>views/dist/js/scripts/editarUsuario.js?ver=1.1.1.3"></script>

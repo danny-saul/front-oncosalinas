@@ -87,6 +87,10 @@ b {
 <script src="<?=BASE?>views/plugins/html2pdf/html2pdf.bundle.js"></script>
 
 <script src="<?=BASE?>views/plugins/Toast/js/Toast.min.js"></script>
+
+<script src="<?= BASE ?>views/dist/js/scripts/peticionJWT.js"></script>
+
+
 <script src="<?=BASE?>views/dist/js/scripts/resultados_laboratorio.js?ver=1.1.1.2"></script>
 
 

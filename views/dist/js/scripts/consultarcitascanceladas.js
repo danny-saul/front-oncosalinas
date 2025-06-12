@@ -1,16 +1,20 @@
 var tabla;
 
 _init();
+
 function _init() {
     dt_listarmedicoxid_atendidas();
     //imprimir();
 }
 
- 
-
 function dt_listarmedicoxid_atendidas() {
-
     let medico_id = JSON.parse(localStorage.getItem('sesion-2'));
+    let token = localStorage.getItem('token');
+
+    if (!token) {
+        window.location = urlCliente + 'login';
+        return;
+    }
 
     function cargarDataTable(fecha_inicio = "null", fecha_fin = "null") {
         $('#tabla-pendientes').DataTable({
@@ -22,16 +26,18 @@ function dt_listarmedicoxid_atendidas() {
             "aServerSide": true,
             "ajax": {
                 url: urlServidor + 'citas/listardatatablexmedico_canceladas/' + medico_id + '/' + fecha_inicio + '/' + fecha_fin,
-                type: "get",
+                type: "GET",
                 dataType: "json",
                 beforeSend: function (xhr) {
-                    let token = localStorage.getItem('token');
-                    if (token) {
-                        xhr.setRequestHeader('Authorization', 'Bearer ' + token);
-                    }
+                    xhr.setRequestHeader('Authorization', 'Bearer ' + token);
                 },
-                error: function (e) {
-                    console.log(e.responseText);
+                error: function (jqXHR) {
+                    if (jqXHR.status === 401) {
+                        localStorage.removeItem('token');
+                        window.location = urlCliente + 'login';
+                    } else {
+                        console.error('Error AJAX:', jqXHR.status, jqXHR.responseText);
+                    }
                 }
             },
             destroy: true,
@@ -52,8 +58,8 @@ function dt_listarmedicoxid_atendidas() {
                     "sPrevious": "Anterior"
                 },
                 "oAria": {
-                    "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
-                    "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+                    "sSortAscending": ": Activar para ordenar ascendente",
+                    "sSortDescending": ": Activar para ordenar descendente"
                 }
             }
         });
@@ -62,49 +68,27 @@ function dt_listarmedicoxid_atendidas() {
     // 👉 Carga automática al abrir la página (sin fechas)
     cargarDataTable();
 
-    // 👉 Botón para filtrar por fecha
+    // 👉 Filtro por fecha
     $('#btn-consulta').click(function () {
-        let fecha_inicio = $('#fecha-inicio-r-v').val();
-        let fecha_fin = $('#fecha-fin-r-v').val();
+        let fecha_inicio = $('#fecha-inicio-r-v').val() || "null";
+        let fecha_fin = $('#fecha-fin-r-v').val() || "null";
 
-        fecha_inicio = fecha_inicio ? fecha_inicio : "null";
-        fecha_fin = fecha_fin ? fecha_fin : "null";
-
-        // Recarga el datatable con el filtro aplicado
         cargarDataTable(fecha_inicio, fecha_fin);
     });
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
+// Funciones auxiliares
 function atender(id) {
-    // alert(id);
     localStorage.setItem('citas_id', id);
-    console.log(localStorage);
     location.href = urlCliente + 'gestion/atendercitas';
 }
 
 function imprimir_receta(id) {
-    // alert(id);
     localStorage.setItem('citas_id', id);
-    console.log(localStorage);
     location.href = urlCliente + 'imprimir/ver_receta';
 }
 
 function editar_cita(id) {
-    // alert(id);
     localStorage.setItem('citas_id', id);
-    console.log(localStorage);
     location.href = urlCliente + 'inicio/editarcitas';
 }
-

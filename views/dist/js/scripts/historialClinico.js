@@ -7,7 +7,13 @@ function _init() {
 }
 
 function dt_listarpaciente() {
-   
+      let token = localStorage.getItem('token');
+
+    if (!token) {
+        window.location = urlCliente + 'login';
+        return;
+    }
+
     tabla = $('#tabla-pacientes').DataTable({
         "lengthMenu": [5, 10, 25, 75, 100],//mostramos el menú de registros a revisar
         "responsive": true, "lengthChange": false, "autoWidth": false,
@@ -18,15 +24,16 @@ function dt_listarpaciente() {
             url: urlServidor + 'paciente/dtlistarhistorial' ,
             type: "get",
             dataType: "json",
-            beforeSend: function(xhr) {
-                // Envía el token JWT en el encabezado Authorization
-                let token = localStorage.getItem('token');
-                if (token) {
-                    xhr.setRequestHeader('Authorization', 'Bearer ' + token);
-                }
+             beforeSend: function (xhr) {
+                xhr.setRequestHeader('Authorization', 'Bearer ' + token);
             },
-            error: function (e) {
-                console.log(e.responseText);
+            error: function (jqXHR) {
+                if (jqXHR.status === 401) {
+                    localStorage.removeItem('token');
+                    window.location = urlCliente + 'login';
+                } else {
+                    console.log('Error AJAX:', jqXHR.status, jqXHR.responseText);
+                }
             }
         },
         destroy: true,

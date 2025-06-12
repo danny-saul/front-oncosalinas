@@ -382,7 +382,7 @@
                                 <i class="fas fa-prescription" style="color: #17a2b8;"></i> Receta
                             </a>
                         </li>
-               
+                 
 
 
                         <li class="nav-item">
@@ -3551,8 +3551,10 @@
 <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
+<script src="<?= BASE ?>views/dist/js/scripts/peticionJWT.js"></script>
+
 <script src="<?=BASE?>views/dist/js/scripts/atenderCitas5.js?ver=1.1.1.11"></script>
-<script src="<?=BASE?>views/dist/js/scripts/atenderCitas_Odontograma.js"></script>
+<!-- <script src="<?=BASE?>views/dist/js/scripts/atenderCitas_Odontograma.js"></script> -->
 
 <script>
 document.addEventListener("DOMContentLoaded", function() {
@@ -3723,4 +3725,4 @@ $(document).ready(function() {
 });
 </script>
 
-
+ 

@@ -286,4 +286,7 @@
 <script src="<?=BASE?>views/plugins/moment/moment.min.js"></script>
 
 <script src="<?=BASE?>views/plugins/Toast/js/Toast.min.js"></script>
+
+<script src="<?= BASE ?>views/dist/js/scripts/peticionJWT.js"></script>
+
 <script src="<?=BASE?>views/dist/js/scripts/examenes_laboratorio.js?ver=1.1.1.4"></script>

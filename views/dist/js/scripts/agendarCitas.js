@@ -10,7 +10,7 @@ function _init() {
 }
 
 function cargarDoctor() {
-    $.ajax({
+    peticionJWT({
         url: urlServidor + 'doctor/listardoctor',
         type: 'GET',
         dataType: 'json',
@@ -43,7 +43,7 @@ function cargarDoctor() {
                 //let d = dias.substring(3, 5);  //01-15-2022 datepicker   
                 //console.log(d);
         
-                $.ajax({
+                peticionJWT({
                     url: urlServidor + 'doctor_horario/listarDoctorHorario/' + doctor_id + '/' + d,
                     type: 'GET',
                     dataType: 'json',
@@ -238,7 +238,7 @@ function cargarDoctor() {
  */
 
 function cargarPaciente() {
-    $.ajax({
+    peticionJWT({
         url: urlServidor + 'paciente/listar',
         type: 'GET',
         dataType: 'json',
@@ -273,7 +273,7 @@ function cargarPaciente() {
 }
 
 function selectServicios() {
-    $.ajax({
+    peticionJWT({
       // la URL para la petición
       url: urlServidor + "servicios/listar",
       // especifica si será una petición POST o GET
@@ -333,7 +333,7 @@ function agregar_servicios() {
       })
       
       } else {
-        $.ajax({
+        peticionJWT({
           // la URL para la petición
           url: urlServidor + "servicios/listar/" + id,
           // especifica si será una petición POST o GET
@@ -469,7 +469,7 @@ function agregar_servicios() {
   }
 
   function guardandoCitas(json) {
-    $.ajax({
+    peticionJWT({
       url: urlServidor + "citas/guardar",
       type: "POST",
       data: "data=" + JSON.stringify(json),

@@ -40,7 +40,7 @@ $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
     let paciente_id = localStorage.getItem('paciente_id');
 
   
-    $.ajax({
+    peticionJWT({
       url: urlServidor + 'odontograma/listarodontopaciente/' + paciente_id,
       type: 'GET',
       dataType: 'json',
@@ -101,7 +101,7 @@ $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
   
 function cargarDatosOd() {
     let paciente_id = localStorage.getItem('paciente_id');
-    $.ajax({
+    peticionJWT({
       url: urlServidor + 'odontograma/listarodontopaciente/' + paciente_id,
       type: 'GET',
       dataType: 'json',
@@ -191,7 +191,7 @@ function cargarDatosOd() {
   
 function guardando_odontograma(json) {
 
-    $.ajax({
+    peticionJWT({
       // la URL para la petición
       url: urlServidor + 'odontograma/guardar',
       type: 'POST',
@@ -321,7 +321,7 @@ function guardando_odontograma(json) {
   });
 
 function cargarDiagnosticoOdonto() {
-    $.ajax({
+    peticionJWT({
       url: urlServidor + 'odontograma/listardiagnostico',
       type: 'GET',
       dataType: 'json',
@@ -379,7 +379,7 @@ function cargarDiagnosticoOdonto() {
 
 
   function selectTipoProcedimientoOdonto() {
-    $.ajax({
+    peticionJWT({
       // la URL para la petición
       url: urlServidor + "odontograma/listarprocedimiento",
       // especifica si será una petición POST o GET
@@ -439,7 +439,7 @@ function cargarDiagnosticoOdonto() {
 
 
 function cargarTratamiento_Odontograma() {
-    $.ajax({
+    peticionJWT({
       url: urlServidor + 'odontograma/listar_tratamientos',
       type: 'GET',
       dataType: 'json',
@@ -488,7 +488,7 @@ $('#modalTratamiento').on('shown.bs.modal', function () {
 /**editar detalle odonto */
 
 function RecuperarDiagnosticoOdonto(selectedId = null) {
-    $.ajax({
+    peticionJWT({
       url: urlServidor + 'odontograma/listardiagnostico',
       type: 'GET',
       dataType: 'json',
@@ -529,7 +529,7 @@ function RecuperarDiagnosticoOdonto(selectedId = null) {
 
 
   function RecuperarTratamientoOdonto(selectedId = null) {
-    $.ajax({
+    peticionJWT({
       url: urlServidor + 'odontograma/listar_tratamientos',
       type: 'GET',
       dataType: 'json',
@@ -567,7 +567,7 @@ function RecuperarDiagnosticoOdonto(selectedId = null) {
   
 
   function RecuperarProcedimientoOdonto(selectedId = null) {
-    $.ajax({
+    peticionJWT({
       url: urlServidor + "odontograma/listarprocedimiento",
       type: 'GET',
       dataType: 'json',
@@ -612,7 +612,7 @@ function RecuperarDiagnosticoOdonto(selectedId = null) {
 
 
   function cargarOdontogramaxId(id) {
-    $.ajax({
+    peticionJWT({
       url: urlServidor + 'odontograma/listarodontogramadetallexid/' + id,
       type: 'GET',
       headers: { "Authorization": `Bearer ${token}` },
@@ -704,7 +704,7 @@ function RecuperarDiagnosticoOdonto(selectedId = null) {
       };
       console.log(json);
   
-      $.ajax({
+      peticionJWT({
         // la URL para la petición
         url: urlServidor + 'odontograma/editarDetalleOdonto',
         type: 'POST',
@@ -849,7 +849,7 @@ function eliminar_odontograma(id) {
     console.log("Ejecutando eliminación en segundo plano para ID:", id);
   
     // Simula la carga de los datos sin abrir el modal
-    $.ajax({
+    peticionJWT({
       url: urlServidor + 'odontograma/listarodontogramadetallexid/' + id,
       type: 'GET',
       headers: { "Authorization": `Bearer ${token}` },
@@ -883,7 +883,7 @@ function eliminar_odontograma(id) {
   
     console.log("Enviando eliminación con JSON:", json);
   
-    $.ajax({
+    peticionJWT({
       url: urlServidor + 'odontograma/eliminarDetalleOdonto',
       type: 'POST',
       data: { data: JSON.stringify(json) },
@@ -962,7 +962,7 @@ $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
 
 function cargarDetalleComponente() {
     let paciente_id = localStorage.getItem('paciente_id');
-    $.ajax({
+    peticionJWT({
       url: urlServidor + 'odontogramacomponente/obtenerDetalleComponente/' + paciente_id,  // Cambia la URL al endpoint que has creado
       type: 'GET',
       dataType: 'json',
@@ -1087,7 +1087,7 @@ function guardar_elementocomponente() {
   
 function guardando_detalle_componente(json) {
 
-    $.ajax({
+    peticionJWT({
       url: urlServidor + 'odontogramacomponente/guardar',
       type: 'POST',
       data: 'data=' + JSON.stringify(json),
@@ -1144,7 +1144,7 @@ function guardando_detalle_componente(json) {
 
 
   function cargarTratamiento_OdCarillas() {
-    $.ajax({
+    peticionJWT({
       url: urlServidor + 'odontograma/listar_tratamientos',
       type: 'GET',
       dataType: 'json',
@@ -1183,7 +1183,7 @@ function guardando_detalle_componente(json) {
   $('#verPdf').on('click', function() {
    
     let id = localStorage.getItem('citas_id');
-    $.ajax({
+    peticionJWT({
       url: urlServidor + 'citas/listarcitasxid/' + id,
       type: 'GET',
       dataType: 'json',
@@ -1226,7 +1226,7 @@ function guardando_detalle_componente(json) {
   });
 
   function selectTipoProcedimiento() {
-    $.ajax({
+    peticionJWT({
       // la URL para la petición
       url: urlServidor + "tipoestudio/listar",
       // especifica si será una petición POST o GET

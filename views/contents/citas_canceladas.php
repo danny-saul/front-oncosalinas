@@ -91,4 +91,7 @@
 <script src="<?=BASE?>views/plugins/moment/moment.min.js"></script>
 
 <script src="<?=BASE?>views/plugins/Toast/js/Toast.min.js"></script>
+
+<script src="<?= BASE ?>views/dist/js/scripts/peticionJWT.js"></script>
+
 <script src="<?=BASE?>views/dist/js/scripts/consultarcitascanceladas.js"></script>

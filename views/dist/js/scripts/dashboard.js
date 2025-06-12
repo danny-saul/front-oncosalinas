@@ -11,7 +11,7 @@ $(function () {
     function cargandoDatos() {
         cantidadUsuarios();
         function cantidadUsuarios() {
-            $.ajax({
+           peticionJWT({
                 url: urlServidor + 'usuario/contar',
                 type: 'GET',
                 dataType: 'json',
@@ -40,7 +40,7 @@ $(function () {
 
         cantidadPaciente();
         function cantidadPaciente() {
-            $.ajax({
+           peticionJWT({
                 url: urlServidor + 'usuario/contarpaciente',
                 type: 'GET',
                 dataType: 'json',
@@ -69,7 +69,7 @@ $(function () {
 /*
         totalcomprasxmes();
         function totalcomprasxmes() {
-            $.ajax({
+           peticionJWT({
                 url: urlServidor + 'compras/totales',
                 type: 'GET',
                 dataType: 'json',
@@ -90,7 +90,7 @@ $(function () {
 */
         totalventasxmes();
         function totalventasxmes() {
-            $.ajax({
+           peticionJWT({
                 url: urlServidor + 'ventas/totales',
                 type: 'GET',
                 dataType: 'json',
@@ -119,7 +119,7 @@ $(function () {
 
         cantidadProducto();
         function cantidadProducto() {
-            $.ajax({
+           peticionJWT({
                 url: urlServidor + 'producto/cantidadproducto',
                 type: 'GET',
                 dataType: 'json',
@@ -150,7 +150,7 @@ $(function () {
         function cantidadcitaspendientes() {
           let medico_id = JSON.parse(localStorage.getItem('sesion-2'));
 
-            $.ajax({
+           peticionJWT({
                 url: urlServidor + 'citas/contar_citaspendiente/'+ medico_id,
                 type: 'GET',
                 dataType: 'json',
@@ -180,7 +180,7 @@ $(function () {
         contarOrdenesImagenesPendientes();
         function contarOrdenesImagenesPendientes() {
             let medico_id = JSON.parse(localStorage.getItem('sesion-2'));
-            $.ajax({
+           peticionJWT({
 
                 url: urlServidor + 'examenes_imagen/contar_ordenesImagenespendiente/'+ medico_id,
                 type: 'GET',
@@ -210,7 +210,7 @@ $(function () {
 /*
         cantidadMascotas();
         function cantidadMascotas() {
-            $.ajax({
+           peticionJWT({
                 url: urlServidor + 'mascota/cantidad',
                 type: 'GET',
                 dataType: 'json',
@@ -232,7 +232,7 @@ $(function () {
 
         totalCitasPagadasXMes(); 
         function totalCitasPagadasXMes() {
-            $.ajax({
+           peticionJWT({
                 url: urlServidor + 'citas/pagadasXMes',
                 type: 'GET',
                 dataType: 'json',
@@ -254,7 +254,7 @@ $(function () {
         
         cantidadCitas();
         function cantidadCitas() {
-            $.ajax({
+           peticionJWT({
                 url: urlServidor + 'citas/cantidadPagadas',
                 type: 'GET',
                 dataType: 'json',
@@ -276,7 +276,7 @@ $(function () {
 
         totalcuentaxpagar();
         function totalcuentaxpagar() {
-            $.ajax({
+           peticionJWT({
                 url: urlServidor + 'cuenta_pagar/totalescuentaxpagar',
                 type: 'GET',
                 dataType: 'json',
@@ -299,7 +299,7 @@ $(function () {
 
         
 function cargarventasMensuales() {
-    $.ajax({
+   peticionJWT({
         // la URL para la petición
         url: urlServidor + 'ventas/graficaventasmensual',
         // especifica si será una petición POST o GET
@@ -377,7 +377,7 @@ function cargarventasMensuales() {
 
 
 function cargarGrafica3() {
-    $.ajax({
+   peticionJWT({
         // la URL para la petición
         url: urlServidor + 'producto/graficoStockProductos',
         // especifica si será una petición POST o GET

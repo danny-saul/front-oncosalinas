@@ -184,4 +184,7 @@
 <script src="<?=BASE?>views/plugins/jquery-knob/jquery.knob.min.js"></script>
 <script src="<?=BASE?>views/plugins/Toast/js/Toast.min.js"></script>
 
+
+<script src="<?= BASE ?>views/dist/js/scripts/peticionJWT.js"></script>
+
 <script src="<?=BASE?>views/dist/js/scripts/dashboard.js"></script>

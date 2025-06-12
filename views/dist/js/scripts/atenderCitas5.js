@@ -21,7 +21,7 @@ function _init() {
 function storage_citas() {
   let id = localStorage.getItem('citas_id');
 
-  $.ajax({
+  peticionJWT({
     // la URL para la petición
     url: urlServidor + 'citas/listarcitasxid/' + id,
     // especifica si será una petición POST o GET
@@ -70,7 +70,7 @@ function listar_resumen() {
   // Mostrar el loader mientras se hace la petición
   $('#loader').show();
 
-  $.ajax({
+  peticionJWT({
     url: urlServidor + 'citas/listarcitas_xid/' + paciente_id,
     type: 'GET',
     dataType: 'json',
@@ -154,7 +154,7 @@ function listar_resumen() {
               <div class="col-3 d-flex flex-column align-items-center mt-15" style="margin-top: 182px;">
                 <p class="mb-2"><i class="fas fa-user"></i> Médico: ${cita.doctor.persona.nombre + ' ' + cita.doctor.persona.apellido}</p> 
                 <p class="mb-2">Especialidad: </p>
-                <p class="mb-2">Fecha: ${cita.fecha}</p> 
+                <p class="mb-2">Fecha: ${cita.fecha_hora}</p> 
                 <p class="mb-2">Código: ${cita.codigo_cita}</p> 
               </div>
                 <div class="col-9">
@@ -388,7 +388,7 @@ $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
 
 
 function generarNumerosOrden() {
-  $.ajax({
+  peticionJWT({
     url: urlServidor + 'ordenes/generar_numeros_aleartorios/Tabla_Orden',
     type: 'GET',
     dataType: 'json',
@@ -424,7 +424,7 @@ function guardarCodigo() {
     }
   }
 
-  $.ajax({
+  peticionJWT({
     url: urlServidor + 'ordenes/aumentarNumerosAleartorios',
     type: 'POST',
     data: 'data=' + JSON.stringify(json),
@@ -472,7 +472,7 @@ $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
 
 
 function cargarDiagnostico() {
-  /*   $.ajax({
+  /*   peticionJWT({
       url: urlServidor + 'diagnostico/listar',
       type: 'GET',
       dataType: 'json',
@@ -578,7 +578,7 @@ $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
 
 
 function cargarDosis() {
-  $.ajax({
+  peticionJWT({
     url: urlServidor + 'dosis/listar',
     type: 'GET',
     dataType: 'json',
@@ -621,7 +621,7 @@ $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
 });
 
 function cargarFrecuencia() {
-  $.ajax({
+  peticionJWT({
     url: urlServidor + 'frecuencia/listar',
     type: 'GET',
     dataType: 'json',
@@ -664,7 +664,7 @@ $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
 });
 
 function cargarVia() {
-  $.ajax({
+  peticionJWT({
     url: urlServidor + 'via/listar',
     type: 'GET',
     dataType: 'json',
@@ -707,7 +707,7 @@ $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
 });
 
 function selectMedicamento() {
-  $.ajax({
+  peticionJWT({
     // la URL para la petición
     url: urlServidor + "producto/listar",
     // especifica si será una petición POST o GET
@@ -769,7 +769,7 @@ function agregarProductos() {
         icon: 'error'
       })
     } else {
-      $.ajax({
+      peticionJWT({
         // la URL para la petición
         url: urlServidor + "producto/listar/" + producto_id,
         // especifica si será una petición POST o GET
@@ -931,7 +931,7 @@ $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
 });
 
 function generarNumerosReceta() {
-  $.ajax({
+  peticionJWT({
     url: urlServidor + 'receta/generar_aleartorio_rec/Tabla_Orden_Rece',
     type: 'GET',
     dataType: 'json',
@@ -967,7 +967,7 @@ function guardarCodigo_receta() {
     }
   }
 
-  $.ajax({
+  peticionJWT({
     url: urlServidor + 'receta/aumentarAleartoriosRec',
     type: 'POST',
     data: 'data=' + JSON.stringify(json),
@@ -1183,7 +1183,7 @@ function eliminar_diagnostico(id) {
 
   let option = '<option value=0>Seleccione un diagnostico</option>';
   $('#nuevo-diagnostico1').html(option);
-  $.ajax({
+  peticionJWT({
     url: urlServidor + 'diagnostico/listar',
     type: 'GET',
     dataType: 'json',
@@ -1241,7 +1241,7 @@ $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
 
 
 function cargarTipo_diagnostico() {
-  $.ajax({
+  peticionJWT({
     url: urlServidor + 'diagnostico/listartipo',
     type: 'GET',
     dataType: 'json',
@@ -1307,7 +1307,7 @@ function agregarDiagnosticos1() {
           icon: 'error'
         })
       } else {
-        $.ajax({
+        peticionJWT({
           // la URL para la petición
           url: urlServidor + "diagnostico/listar/" + diagnosticocie10_id,
 
@@ -1811,7 +1811,7 @@ function guardarHistorial() {
             diagnosticos: array2
           };
 
-          $.ajax({
+          peticionJWT({
             url: urlServidor + 'recetadiagnostico/guardarSinReceta',
             type: 'POST',
             data: JSON.stringify(payload),
@@ -1936,7 +1936,7 @@ function validar_registroatencion(json) {
 }
 
 function ajaxGuardandohistorial(json) {
-  $.ajax({
+  peticionJWT({
     url: urlServidor + 'citas/guardar_historiaclinica',
     type: 'POST',
     data: 'data=' + JSON.stringify(json),
@@ -1994,7 +1994,7 @@ function ajaxGuardandohistorial(json) {
 
 
 function ajaxGuardandolaboratorio(json2) {
-  $.ajax({
+  peticionJWT({
     url: urlServidor + 'laboratorio/guardarOrden',
     type: 'POST',
     data: 'data=' + JSON.stringify(json2),
@@ -2048,7 +2048,7 @@ function ajaxGuardandolaboratorio(json2) {
 
 
 function ajaxGuardandoReceta(json3, array2) {
-  $.ajax({
+  peticionJWT({
     url: urlServidor + 'receta/guardarReceta',
     type: 'POST',
     data: 'data=' + JSON.stringify(json3),
@@ -2098,7 +2098,7 @@ function ajaxGuardandoReceta(json3, array2) {
 
 
 function guardarDiagnosticoReceta(payload) {
-  $.ajax({
+  peticionJWT({
     url: urlServidor + 'recetadiagnostico/guardar_recetas_diagnosticos',
     type: 'POST',
     data: JSON.stringify(payload),
@@ -2213,7 +2213,7 @@ function agregarOrden() {
              icon: 'error'
            }) */
     } else {
-      $.ajax({
+      peticionJWT({
         // la URL para la petición
         url: urlServidor + "tipoestudio/listar/" + tipo_estudio_id,
 
@@ -2484,7 +2484,7 @@ $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
 });
 
 function generarNumerosOrden_laboratorio() {
-  $.ajax({
+  peticionJWT({
     url: urlServidor + 'tipo_examen/generar_aleartorio_lab/Tabla_Orden_Labs',
     type: 'GET',
     dataType: 'json',
@@ -2520,7 +2520,7 @@ function guardarCodigo_laboratorio() {
     }
   }
 
-  $.ajax({
+  peticionJWT({
     url: urlServidor + 'tipo_examen/aumentarAleartoriosLab',
     type: 'POST',
     data: 'data=' + JSON.stringify(json),
@@ -2573,7 +2573,7 @@ function agregarOrden_laboratorio() {
       });
 
     } else {
-      $.ajax({
+      peticionJWT({
         // la URL para la petición
         url: urlServidor + "tipo_examen/listarLab/" + tipo_examen_id,
 
@@ -2767,7 +2767,7 @@ function limpiarCampos4() {
 /*ANTECEDENTES   */
 
 function cargarAntecedentes2() {
-  $.ajax({
+  peticionJWT({
     url: urlServidor + "antecedentes/listarAntecedentesXGrupos",
     type: "GET",
     dataType: "json",
@@ -2900,7 +2900,7 @@ $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
 function guardar_antecendente_paciente() {
   $('#guardar-antecedente-paciente').click(function () {
     let id = localStorage.getItem('citas_id');
-    $.ajax({
+    peticionJWT({
       url: urlServidor + 'citas/listarcitasxid/' + id,
       type: 'GET',
       dataType: 'json',
@@ -2969,7 +2969,7 @@ function limpiarTabla() {
 
 function guardando_antecedentes(json) {
 
-  $.ajax({
+  peticionJWT({
     // la URL para la petición
     url: urlServidor + 'pacienteantecedentes/guardar',
     type: 'POST',
@@ -3020,7 +3020,7 @@ function guardando_antecedentes(json) {
 function datatable_antecedentes() {
 
   let id = localStorage.getItem('citas_id');
-  $.ajax({
+  peticionJWT({
     url: urlServidor + 'citas/listarcitasxid/' + id,
     type: 'GET',
     dataType: 'json',
@@ -3107,7 +3107,7 @@ function cargarDatatable(paciente_id) {
 
 // Función para cargar antecedentes
 function cargarAntecedentes() {
-  $.ajax({
+  peticionJWT({
     url: urlServidor + "antecedentes/listarAntecedentesXGrupos",
     type: "GET",
     dataType: "json",
@@ -3295,11 +3295,11 @@ function guardar_producto() {
   });
 }
 
-$.ajaxSetup({ cache: false });
+
 
 function guardando_producto(json) {
 
-  $.ajax({
+  peticionJWT({
     url: urlServidor + 'producto/guardar',
     type: 'POST',
     data: 'data=' + JSON.stringify(json),
@@ -3351,7 +3351,7 @@ function guardando_producto(json) {
 
 
 function cargarAntecedentesfamiliares() {
-  $.ajax({
+  peticionJWT({
     url: urlServidor + "antecedentesfamiliares/listarantecedentesfamiliares",
     type: "GET",
     dataType: "json",
@@ -3491,7 +3491,7 @@ $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
 function guardar_antecendente_familiares() {
   $('#guardar-antecedente-familiar').click(function () {
     let id = localStorage.getItem('citas_id');
-    $.ajax({
+    peticionJWT({
       url: urlServidor + 'citas/listarcitasxid/' + id,
       type: 'GET',
       dataType: 'json',
@@ -3556,7 +3556,7 @@ function guardar_antecendente_familiares() {
 
 function guardando_antecedentes_familiares(json) {
 
-  $.ajax({
+  peticionJWT({
     // la URL para la petición
     url: urlServidor + 'antecedentesfamiliares/guardar',
     type: 'POST',
@@ -3610,7 +3610,7 @@ function limpiarTabla2() {
 function datatable_antecedentesfamiliares() {
 
   let id = localStorage.getItem('citas_id');
-  $.ajax({
+  peticionJWT({
     url: urlServidor + 'citas/listarcitasxid/' + id,
     type: 'GET',
     dataType: 'json',

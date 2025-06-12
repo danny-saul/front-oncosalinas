@@ -96,7 +96,7 @@
 <!--===============================================================================================-->
 	<script src="<?= BASE ?>views/dist/login_v2/js/main.js"></script>
 	
-	<script src="<?=BASE?>views/dist/js/scripts/login.js?ver=1.1.1.2"></script>
+	<script src="<?=BASE?>views/dist/js/scripts/login.js?ver=1.1.1.3"></script>
 
 </body>
 </html>

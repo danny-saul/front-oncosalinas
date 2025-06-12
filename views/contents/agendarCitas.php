@@ -365,6 +365,7 @@
 </div>
 </div>
 
+<script src="<?= BASE ?>views/dist/js/scripts/peticionJWT.js"></script>
 
 <script src="<?=BASE?>views/dist/js/scripts/agendarCitas.js?ver=1.1.1.2"></script>
 

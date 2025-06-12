@@ -65,7 +65,7 @@ $(function () {
 
     function guardando_categoria(json) {
 
-        $.ajax({
+       peticionJWT({
             url: urlServidor + 'categoria/guardar_categoria',
             type: 'POST',
             data: 'data=' + JSON.stringify(json),
@@ -173,7 +173,7 @@ function editar_categoria(id) {
 }
 
 function cargarCategorias(id) {
-    $.ajax({
+   peticionJWT({
         // la URL para la petición
         url: urlServidor + 'categoria/listarId/' + id,
         // especifica si será una petición POST o GET
@@ -215,7 +215,7 @@ function editando_categoria() {
             }
         };
 
-        $.ajax({
+       peticionJWT({
             // la URL para la petición
             url: urlServidor + 'categoria/editar',
             type: 'POST',
@@ -265,7 +265,7 @@ function eliminar_categoria(id) {
             { id }
     };
 
-    $.ajax({
+   peticionJWT({
         // la URL para la petición
         url: urlServidor + 'categoria/eliminar/' + id,
         // especifica si será una petición POST o GET

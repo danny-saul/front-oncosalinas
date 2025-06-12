@@ -66,7 +66,7 @@ function listarventas() {
 function ver_detalleVenta(id){
     $('#modal-listar').modal('show');
 
-    $.ajax({
+    peticionJWT({
         url:urlServidor  +'ventas/listarventasxid/'+id,
         type:'GET',
         dataType:'json',

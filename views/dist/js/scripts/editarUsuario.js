@@ -12,7 +12,7 @@ function init() {
 
  
 function recuperarsexo() {
-    $.ajax({
+    peticionJWT({
         url: urlServidor + 'sexo/listar',
         type: 'GET',
         dataType: 'json',
@@ -43,7 +43,7 @@ function recuperarsexo() {
 }
 
 function recuperartipocobertura() {
-    $.ajax({
+    peticionJWT({
         url: urlServidor + 'tipo_cobertura/listar',
         type: 'GET',
         dataType: 'json',
@@ -74,7 +74,7 @@ function recuperartipocobertura() {
 }
 
 function recuperartipooperadora() {
-    $.ajax({
+    peticionJWT({
         url: urlServidor + 'tipo_cobertura/listaroperadora',
         type: 'GET',
         dataType: 'json',
@@ -106,7 +106,7 @@ function recuperartipooperadora() {
 
 
 function recuperartiposeguro() {
-    $.ajax({
+    peticionJWT({
         url: urlServidor + 'tipo_cobertura/listartiposeguro',
         type: 'GET',
         dataType: 'json',
@@ -137,7 +137,7 @@ function recuperartiposeguro() {
 } 
 
 function recuperarrol() {
-    $.ajax({
+    peticionJWT({
         url: urlServidor + 'rol/listar',
         type: 'GET',
         dataType: 'json',
@@ -173,7 +173,7 @@ function editar_usuario2() {
     console.log(id);
  
 
-    $.ajax({
+    peticionJWT({
         url: urlServidor + 'usuario/listarusuid/' + id, // Cambia la URL según tu configuración de rutas en Laravel
         type: 'GET',
         dataType: 'json',
@@ -231,7 +231,7 @@ function editar_usuario2() {
 
 
     function obtenerPDF(disk, file) {
-        $.ajax({
+        peticionJWT({
             url: urlServidor + 'cedulas/' + disk + '/' + file,
             type: 'GET',
             xhrFields: {
@@ -264,7 +264,7 @@ function editar_usuario2() {
     
 
 /*     // Realiza la solicitud AJAX para obtener la información del usuario y el PDF asociado
-    $.ajax({
+    peticionJWT({
         url: urlServidor + 'usuario/listarusuid/' + id, // Ruta hacia el método en el controlador Laravel
         method: 'GET',
         success: function(response) {
@@ -297,7 +297,7 @@ function editar_usuario2() {
 }
 
 /* function cargarUsuario(id){
-    $.ajax({
+    peticionJWT({
         url: urlServidor + 'usuario/listarusuid/' + id, // Cambia la URL según tu configuración de rutas en Laravel
         type: 'GET',
         dataType: 'json',
@@ -338,7 +338,7 @@ function editar_usuario2() {
 } */
 
 /* function recuperarsexo() {
-    $.ajax({
+    peticionJWT({
         url: urlServidor + 'sexo/listar',
         type: 'GET',
         dataType: 'json',
@@ -411,7 +411,7 @@ function editandousuariol() {
             }
         };
 
-        $.ajax({
+        peticionJWT({
             // la URL para la petición
             url: urlServidor + 'usuario/editar',
             type: 'POST',

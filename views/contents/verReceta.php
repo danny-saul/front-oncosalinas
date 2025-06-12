@@ -180,4 +180,7 @@
 
 <script src="<?=BASE?>views/plugins/datatables/jquery.dataTables.min.js"></script>
 <script src="<?=BASE?>views/plugins/html2pdf/html2pdf.bundle.js"></script>
+
+<script src="<?= BASE ?>views/dist/js/scripts/peticionJWT.js"></script>
+
 <script src="<?=BASE?>views/dist/js/scripts/ver_receta.js?ver=1.1.1.2"></script>

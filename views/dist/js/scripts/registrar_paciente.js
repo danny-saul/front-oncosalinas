@@ -98,7 +98,7 @@ $(function () {
     }
     
     function guardandousuario(json) {
-        $.ajax({
+        peticionJWT({
             url: urlServidor + 'paciente/guardar',
             type: 'POST',
             data: 'data=' + JSON.stringify(json),
@@ -153,7 +153,7 @@ $(function () {
             let formData = new FormData();
             formData.append('fichero', imagen);
     
-            $.ajax({
+            peticionJWT({
                 // la URL para la petición
                 url: urlServidor + 'paciente/fichero',
                 // especifica si será una petición POST o GET
@@ -192,7 +192,7 @@ $(function () {
             let formData = new FormData();
             formData.append('fichero', imagen_cedula);
     
-            $.ajax({
+            peticionJWT({
                 // la URL para la petición
                 url: urlServidor + 'paciente/fichero2',
                 // especifica si será una petición POST o GET
@@ -225,7 +225,7 @@ $(function () {
     }
 
 /*     function cargarSexo() {
-        $.ajax({
+        peticionJWT({
             url: urlServidor + 'sexo/listar',
             type: 'GET',
             dataType: 'json',
@@ -249,7 +249,7 @@ $(function () {
         });
     } */
     function cargarSexo() {
-        $.ajax({
+        peticionJWT({
             url: urlServidor + 'sexo/listar',
             type: 'GET',
             dataType: 'json',
@@ -285,7 +285,7 @@ $(function () {
     
     
      function cargarRol() {
-        $.ajax({
+        peticionJWT({
             url: urlServidor + 'rol/listar',
             type: 'GET',
             dataType: 'json',

@@ -66,7 +66,7 @@ include_once 'views/contents/examenes_laboratorio.php';
         });
     }else{//no hay token y nunca ingresa a la ruta
     //    alert('no hay token');
-        window.location = urlCliente + 'views/pages/404.php';
+        window.location = urlCliente + 'login';
         
     }
 </script>

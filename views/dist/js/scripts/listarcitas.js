@@ -161,7 +161,7 @@ function cancelar_cita(id){
 
 
 function cambiar_estado_cancelarcita(id){
-    $.ajax({
+    peticionJWT({
         url: urlServidor + 'citas/eliminarCitasCancelar/' + id, // Asegúrate de cambiar la ruta
         type: 'GET',
         dataType: 'json',

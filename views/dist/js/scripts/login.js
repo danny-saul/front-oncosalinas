@@ -145,7 +145,7 @@ $(function () {
                 window.location = urlCliente + 'inicio/citas';
                 break;
             case 2:
-                window.location = urlCliente + 'inicio/citas';
+                window.location = urlCliente + 'gestion/asignarcitas';
                 break;
             case 3:
                 window.location = urlCliente + 'inicio/citas';

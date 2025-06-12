@@ -52,7 +52,7 @@ function listar_resumen2() {
 
   let id = localStorage.getItem('citas_id');
 
-  $.ajax({
+  peticionJWT({
     // la URL para la petición
     url: urlServidor + 'citas/listarcitasxid/' + id,
     // especifica si será una petición POST o GET
@@ -76,7 +76,7 @@ function listar_resumen2() {
         let paciente_id = response.citas.paciente_id;
         //    console.log(paciente_id);
 
-        $.ajax({
+        peticionJWT({
           // la URL para la petición
           url: urlServidor + 'citas/listarcitas_xid/' + paciente_id,
           // especifica si será una petición POST o GET
@@ -233,7 +233,7 @@ function listar_resumen() {
 
   let id = localStorage.getItem('citas_id');
 
-  $.ajax({
+  peticionJWT({
     // la URL para la petición
     url: urlServidor + 'citas/listarcitasxid/' + id,
     // especifica si será una petición POST o GET
@@ -256,7 +256,7 @@ function listar_resumen() {
   
         let paciente_id = response.citas.paciente_id;
   
-        $.ajax({
+        peticionJWT({
           // la URL para la petición
           url: urlServidor + 'citas/listarcitas_xid/' + paciente_id,
           // especifica si será una petición POST o GET
@@ -543,7 +543,7 @@ function listar_resumen() {
 
 
 function generarNumerosOrden() {
-  $.ajax({
+  peticionJWT({
     url: urlServidor + 'ordenes/generar_numeros_aleartorios/Tabla_Orden',
     type: 'GET',
     dataType: 'json',
@@ -579,7 +579,7 @@ function guardarCodigo() {
     }
   }
 
-  $.ajax({
+  peticionJWT({
     url: urlServidor + 'ordenes/aumentarNumerosAleartorios',
     type: 'POST',
     data: 'data=' + JSON.stringify(json),
@@ -607,7 +607,7 @@ function guardarCodigo() {
 
 
 function cargarDiagnostico() {
-  $.ajax({
+  peticionJWT({
     url: urlServidor + 'diagnostico/listar',
     type: 'GET',
     dataType: 'json',
@@ -657,7 +657,7 @@ function cargarDiagnostico() {
 /*RECETA----------------------------- */
 
 function cargarDosis() {
-  $.ajax({
+  peticionJWT({
     url: urlServidor + 'dosis/listar',
     type: 'GET',
     dataType: 'json',
@@ -689,7 +689,7 @@ function cargarDosis() {
 }
 
 function cargarFrecuencia() {
-  $.ajax({
+  peticionJWT({
     url: urlServidor + 'frecuencia/listar',
     type: 'GET',
     dataType: 'json',
@@ -721,7 +721,7 @@ function cargarFrecuencia() {
 }
 
 function selectMedicamento() {
-  $.ajax({
+  peticionJWT({
     // la URL para la petición
     url: urlServidor + "producto/listar",
     // especifica si será una petición POST o GET
@@ -771,7 +771,7 @@ function agregarProductos() {
         icon: 'error'
       })
     } else {
-      $.ajax({
+      peticionJWT({
         // la URL para la petición
         url: urlServidor + "producto/listar/" + producto_id,
         // especifica si será una petición POST o GET
@@ -1097,7 +1097,7 @@ function eliminar_diagnostico(id) {
 
   let option = '<option value=0>Seleccione un diagnostico</option>';
   $('#nuevo-diagnostico1').html(option);
-  $.ajax({
+  peticionJWT({
     url: urlServidor + 'diagnostico/listar',
     type: 'GET',
     dataType: 'json',
@@ -1141,7 +1141,7 @@ function eliminar_diagnostico(id) {
 function storage_citas() {
   let id = localStorage.getItem('citas_id');
 
-  $.ajax({
+  peticionJWT({
     // la URL para la petición
     url: urlServidor + 'citas/listarcitasxid/' + id,
     // especifica si será una petición POST o GET
@@ -1183,7 +1183,7 @@ function storage_citas() {
 
 
 function cargarTipo_diagnostico() {
-  $.ajax({
+  peticionJWT({
     url: urlServidor + 'diagnostico/listartipo',
     type: 'GET',
     dataType: 'json',
@@ -1236,7 +1236,7 @@ function agregarDiagnosticos1() {
           icon: 'error'
         })
       } else {
-        $.ajax({
+        peticionJWT({
           // la URL para la petición
           url: urlServidor + "diagnostico/listar/" + diagnosticocie10_id,
 
@@ -1775,7 +1775,7 @@ function validar_registroatencion(json) {
 }
 
 function ajaxGuardandohistorial(json) {
-  $.ajax({
+  peticionJWT({
     url: urlServidor + 'citas/guardar_historiaclinica',
     type: 'POST',
     data: 'data=' + JSON.stringify(json),
@@ -1833,7 +1833,7 @@ function ajaxGuardandohistorial(json) {
  
 
 function ajaxGuardandolaboratorio(json2) {
-  $.ajax({
+  peticionJWT({
     url: urlServidor + 'laboratorio/guardarOrden',
     type: 'POST',
     data: 'data=' + JSON.stringify(json2),
@@ -1887,7 +1887,7 @@ function ajaxGuardandolaboratorio(json2) {
 
 
 function selectTipoEstudio() {
-  $.ajax({
+  peticionJWT({
     // la URL para la petición
     url: urlServidor + "tipoestudio/listar",
     // especifica si será una petición POST o GET
@@ -1947,7 +1947,7 @@ function agregarOrden() {
           icon: 'error'
         }) */
       } else {
-        $.ajax({
+        peticionJWT({
           // la URL para la petición
           url: urlServidor + "tipoestudio/listar/" + tipo_estudio_id,
 
@@ -2156,7 +2156,7 @@ function limpiarCampos2() {
 /**INICIO  DE ORDENES LABORATORIO EXAMENES */
 
 function selectTipoExamenLaboratorio() {
-  $.ajax({
+  peticionJWT({
     // la URL para la petición
     url: urlServidor + "tipo_examen/listar",
     // especifica si será una petición POST o GET
@@ -2196,7 +2196,7 @@ function selectTipoExamenLaboratorio() {
 
 
 function generarNumerosOrden_laboratorio() {
-  $.ajax({
+  peticionJWT({
     url: urlServidor + 'tipo_examen/generar_aleartorio_lab/Tabla_Orden_Labs',
     type: 'GET',
     dataType: 'json',
@@ -2232,7 +2232,7 @@ function guardarCodigo_laboratorio() {
     }
   }
 
-  $.ajax({
+  peticionJWT({
     url: urlServidor + 'tipo_examen/aumentarAleartoriosLab',
     type: 'POST',
     data: 'data=' + JSON.stringify(json),
@@ -2272,7 +2272,7 @@ function guardarCodigo_laboratorio() {
       });
   
       } else {
-        $.ajax({
+        peticionJWT({
           // la URL para la petición
           url: urlServidor + "tipo_examen/listarLab/" + tipo_examen_id,
 
@@ -2466,7 +2466,7 @@ function limpiarCampos4() {
 /*ANTECEDENTES   */
 
 function cargarAntecedentes2() {
-  $.ajax({
+  peticionJWT({
     url: urlServidor + "antecedentes/listarAntecedentesXGrupos",
     type: "GET",
     dataType: "json",
@@ -2589,7 +2589,7 @@ function getCurrentDate() {
 function guardar_antecendente_paciente() {
   $('#guardar-antecedente-paciente').click(function () {
     let id = localStorage.getItem('citas_id');
-    $.ajax({
+    peticionJWT({
       url: urlServidor + 'citas/listarcitasxid/' + id,
       type: 'GET',
       dataType: 'json',
@@ -2658,7 +2658,7 @@ function limpiarTabla() {
 
 function guardando_antecedentes(json) {
 
-  $.ajax({
+  peticionJWT({
     // la URL para la petición
     url: urlServidor + 'pacienteantecedentes/guardar',
     type: 'POST',
@@ -2709,7 +2709,7 @@ function guardando_antecedentes(json) {
 function datatable_antecedentes() {
 
   let id = localStorage.getItem('citas_id');
-  $.ajax({
+  peticionJWT({
     url: urlServidor + 'citas/listarcitasxid/' + id,
     type: 'GET',
     dataType: 'json',
@@ -2795,7 +2795,7 @@ function cargarDatatable(paciente_id) {
 
  
 function cargarAntecedentes() {
-  $.ajax({
+  peticionJWT({
     url: urlServidor + "antecedentes/listarAntecedentesXGrupos",
     type: "GET",
     dataType: "json",
@@ -2934,11 +2934,11 @@ function guardar_producto() {
   });
 }
 
-$.ajaxSetup({ cache: false });
+peticionJWTSetup({ cache: false });
 
 function guardando_producto(json) {
 
-  $.ajax({
+  peticionJWT({
     url: urlServidor + 'producto/guardar',
     type: 'POST',
     data: 'data=' + JSON.stringify(json),
@@ -2992,7 +2992,7 @@ function guardando_producto(json) {
 
 
 function selectTipoProcedimiento() {
-  $.ajax({
+  peticionJWT({
     // la URL para la petición
     url: urlServidor + "tipoestudio/listar",
     // especifica si será una petición POST o GET
@@ -3036,7 +3036,7 @@ function selectTipoProcedimiento() {
 /**INICIO ANTECEDENTES FAMILIARES  */
 
 function cargarAntecedentesfamiliares() {
-  $.ajax({
+  peticionJWT({
     url: urlServidor + "antecedentesfamiliares/listarantecedentesfamiliares",
     type: "GET",
     dataType: "json",
@@ -3152,7 +3152,7 @@ function cargarAntecedentesfamiliares() {
 function guardar_antecendente_familiares() {
   $('#guardar-antecedente-familiar').click(function () {
     let id = localStorage.getItem('citas_id');
-    $.ajax({
+    peticionJWT({
       url: urlServidor + 'citas/listarcitasxid/' + id,
       type: 'GET',
       dataType: 'json',
@@ -3217,7 +3217,7 @@ function guardar_antecendente_familiares() {
 
 function guardando_antecedentes_familiares(json) {
 
-  $.ajax({
+  peticionJWT({
     // la URL para la petición
     url: urlServidor + 'antecedentesfamiliares/guardar',
     type: 'POST',
@@ -3271,7 +3271,7 @@ function limpiarTabla2() {
 function datatable_antecedentesfamiliares() {
 
   let id = localStorage.getItem('citas_id');
-  $.ajax({
+  peticionJWT({
     url: urlServidor + 'citas/listarcitasxid/' + id,
     type: 'GET',
     dataType: 'json',
@@ -3418,7 +3418,7 @@ function guardarOdontograma() {
 
 function guardando_odontograma(json) {
 
-  $.ajax({
+  peticionJWT({
     // la URL para la petición
     url: urlServidor + 'odontograma/guardar',
     type: 'POST',
@@ -3469,7 +3469,7 @@ function guardando_odontograma(json) {
 
 
   let id = localStorage.getItem('citas_id');
-  $.ajax({
+  peticionJWT({
     url: urlServidor + 'citas/listarcitasxid/' + id,
     type: 'GET',
     dataType: 'json',
@@ -3485,7 +3485,7 @@ function guardando_odontograma(json) {
         let paciente_id = response.citas.paciente_id;
      //   console.log(paciente_id);
 
-     $.ajax({
+     peticionJWT({
       url: urlServidor + 'odontograma/listarodontopaciente/'+ paciente_id,
       type: 'GET',
       beforeSend: function (xhr) {
@@ -3531,7 +3531,7 @@ function guardando_odontograma(json) {
 /* function cargarOdontograma() {
   let id = localStorage.getItem('citas_id');
 
-  $.ajax({
+  peticionJWT({
     url: urlServidor + 'citas/listarcitasxid/' + id,
     type: 'GET',
     dataType: 'json',
@@ -3545,7 +3545,7 @@ function guardando_odontograma(json) {
       if (response.status) {
         let paciente_id = response.citas.paciente_id;
 
-        $.ajax({
+        peticionJWT({
           url: urlServidor + 'odontograma/listarodontopaciente/' + paciente_id,
           type: 'GET',
           beforeSend: function (xhr) {
@@ -3606,7 +3606,7 @@ function obtenerColorPorEstado(estado) {
 /* function cargarOdontograma() {
   let id = localStorage.getItem('citas_id');
 
-  $.ajax({
+  peticionJWT({
     url: urlServidor + 'citas/listarcitasxid/' + id,
     type: 'GET',
     dataType: 'json',
@@ -3620,7 +3620,7 @@ function obtenerColorPorEstado(estado) {
       if (response.status) {
         let paciente_id = response.citas.paciente_id;
 
-        $.ajax({
+        peticionJWT({
           url: urlServidor + 'odontograma/listarodontopaciente/' + paciente_id,
           type: 'GET',
           beforeSend: function (xhr) {
@@ -3673,7 +3673,7 @@ function obtenerColorPorEstado(estado) {
 function cargarOdontograma() {
   let id = localStorage.getItem('citas_id');
 
-  $.ajax({
+  peticionJWT({
       url: urlServidor + 'citas/listarcitasxid/' + id,
       type: 'GET',
       dataType: 'json',
@@ -3687,7 +3687,7 @@ function cargarOdontograma() {
           if (response.status) {
               let paciente_id = response.citas.paciente_id;
 
-              $.ajax({
+              peticionJWT({
                   url: urlServidor + 'odontograma/listarodontopaciente/' + paciente_id,
                   type: 'GET',
                   dataType: 'json',
@@ -3768,7 +3768,7 @@ $(document).ready(function () {
 
 
 function cargarDiagnosticoOdonto() {
-  $.ajax({
+  peticionJWT({
     url: urlServidor + 'odontograma/listardiagnostico',
     type: 'GET',
     dataType: 'json',
@@ -3816,7 +3816,7 @@ function cargarDiagnosticoOdonto() {
 
 
 function selectTipoProcedimientoOdonto() {
-  $.ajax({
+  peticionJWT({
     // la URL para la petición
     url: urlServidor + "odontograma/listarprocedimiento",
     // especifica si será una petición POST o GET
@@ -3864,7 +3864,7 @@ function selectTipoProcedimientoOdonto() {
 }
 
 function cargarTratamiento_Odontograma() {
-  $.ajax({
+  peticionJWT({
     url: urlServidor + 'odontograma/listar_tratamientos',
     type: 'GET',
     dataType: 'json',
@@ -3911,7 +3911,7 @@ $('#modalTratamiento').on('shown.bs.modal', function () {
 function cargardtodonto() {
 
   let id = localStorage.getItem('citas_id');
-  $.ajax({
+  peticionJWT({
     url: urlServidor + 'citas/listarcitasxid/' + id,
     type: 'GET',
     dataType: 'json',
@@ -3997,7 +3997,7 @@ function cargardtodonto() {
 /**editar detalle odonto */
 
 function RecuperarDiagnosticoOdonto(selectedId = null) {
-  $.ajax({
+  peticionJWT({
     url: urlServidor + 'odontograma/listardiagnostico',
     type: 'GET',
     dataType: 'json',
@@ -4034,7 +4034,7 @@ function RecuperarDiagnosticoOdonto(selectedId = null) {
 }
 
 function RecuperarTratamientoOdonto(selectedId = null) {
-  $.ajax({
+  peticionJWT({
     url: urlServidor + 'odontograma/listar_tratamientos',
     type: 'GET',
     dataType: 'json',
@@ -4071,7 +4071,7 @@ function RecuperarTratamientoOdonto(selectedId = null) {
 }
 
 function RecuperarProcedimientoOdonto(selectedId = null) {
-  $.ajax({
+  peticionJWT({
     url: urlServidor + "odontograma/listarprocedimiento",
     type: 'GET',
     dataType: 'json',
@@ -4115,7 +4115,7 @@ function editar_odontograma(id) {
   cargarOdontogramaxId(id);
 }
 function cargarOdontogramaxId(id) {
-  $.ajax({
+  peticionJWT({
     url: urlServidor + 'odontograma/listarodontogramadetallexid/' + id,
     type: 'GET',
     headers: { "Authorization": `Bearer ${token}` }, 
@@ -4195,7 +4195,7 @@ function editandodetalleOdonto() {
       };
       console.log(json);
    
-        $.ajax({
+        peticionJWT({
           // la URL para la petición
           url: urlServidor + 'odontograma/editarDetalleOdonto',
           type: 'POST',
@@ -4260,7 +4260,7 @@ function editandodetalleOdonto() {
 function cargardtodonto2() {
 
   let id = localStorage.getItem('citas_id');
-  $.ajax({
+  peticionJWT({
     url: urlServidor + 'citas/listarcitasxid/' + id,
     type: 'GET',
     dataType: 'json',
@@ -4365,7 +4365,7 @@ function eliminar_odontograma(id){
  
 
 function cambiar_estado_odontogramadetalle(id) {
-  $.ajax({
+  peticionJWT({
       url: urlServidor + 'odontograma/cancelardetalleodonto/' + id, // Asegúrate de cambiar la ruta
       type: 'GET',
       dataType: 'json',

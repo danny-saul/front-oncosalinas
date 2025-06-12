@@ -27,18 +27,20 @@ class GestionController
             echo 'no hay token por post';
         } 
     }
-    public function AsignarCitas()
+    public function asignarcitas()
     {
         $dataPost = isset($_POST['data']);
 
         if(!$dataPost) {
       //  include_once 'views/contents/consultarcitas.php';
-        include_once 'views/contents/agendarCitas.php';
+        include_once 'views/contents/agendarCitasFull.php';
      
         }else{
             echo 'no hay token por post';
         } 
     }
+
+
     public function Horarios()
     {
         $dataPost = isset($_POST['data']);
@@ -51,6 +53,36 @@ class GestionController
             echo 'no hay token por post';
         } 
     }
+
+        public function Mostrar()
+    {
+        $dataPost = isset($_POST['data']);
+
+        if(!$dataPost) {
+       // include_once 'views/contents/consultarcitas.php';
+       include_once 'views/contents/mostrarHorarios.php';
+     
+        }else{
+            echo 'no hay token por post';
+        } 
+    }
+
+          public function mishorariosmd()
+    {
+        $dataPost = isset($_POST['data']);
+
+        if(!$dataPost) {
+       // include_once 'views/contents/consultarcitas.php';
+       include_once 'views/contents/mishorariosdoc.php';
+     
+        }else{
+            echo 'no hay token por post';
+        } 
+    }
+
+    
+
+
     public function atendercitas()
     {
         $dataPost = isset($_POST['data']);
@@ -152,7 +184,7 @@ class GestionController
         });
     }else{//no hay token y nunca ingresa a la ruta
     //    alert('no hay token');
-        window.location = urlCliente + 'views/pages/404.php';
+        window.location = urlCliente + 'login';
         
     }
 </script>

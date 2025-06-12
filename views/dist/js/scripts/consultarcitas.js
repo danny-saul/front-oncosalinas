@@ -5,34 +5,38 @@ function _init() {
     dt_listarmedicoxid();
     //imprimir();
 }
-
 function dt_listarmedicoxid() {
-   
     let medico_id = JSON.parse(localStorage.getItem('sesion-2'));
+    let token = localStorage.getItem('token');
+
+    if (!token) {
+        window.location = urlCliente + 'login';
+        return;
+    }
 
     tabla = $('#tabla-pendientes').DataTable({
-        "lengthMenu": [5, 10, 25, 75, 100],//mostramos el menú de registros a revisar
+        "lengthMenu": [5, 10, 25, 75, 100],
         "responsive": true, "lengthChange": false, "autoWidth": false,
-        "aProcessing": true,//Activamos el procesamiento del datatables
-        "aServerSide": true,//Paginación y filtrado realizados por el servidor
-        "ajax":
-        {
-            url: urlServidor + 'citas/listardatatablexmedico/' + medico_id ,
-            type: "get",
+        "aProcessing": true,
+        "aServerSide": true,
+        "ajax": {
+            url: urlServidor + 'citas/listardatatablexmedico/' + medico_id,
+            type: "GET",
             dataType: "json",
-            beforeSend: function(xhr) {
-                // Envía el token JWT en el encabezado Authorization
-                let token = localStorage.getItem('token');
-                if (token) {
-                    xhr.setRequestHeader('Authorization', 'Bearer ' + token);
-                }
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader('Authorization', 'Bearer ' + token);
             },
-            error: function (e) {
-                console.log(e.responseText);
+            error: function (jqXHR) {
+                if (jqXHR.status === 401) {
+                    localStorage.removeItem('token');
+                    window.location = urlCliente + 'login';
+                } else {
+                    console.log('Error AJAX:', jqXHR.status, jqXHR.responseText);
+                }
             }
         },
         destroy: true,
-        "iDisplayLength": 5,//Paginación
+        "iDisplayLength": 10,
         "language": {
             "sProcessing": "Procesando...",
             "sLengthMenu": "Mostrar _MENU_ registros",
@@ -41,55 +45,55 @@ function dt_listarmedicoxid() {
             "sInfo": "Mostrando un total de _TOTAL_ registros",
             "sInfoEmpty": "Mostrando un total de 0 registros",
             "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
-            "sInfoPostFix": "",
             "sSearch": "Buscar:",
-            "sUrl": "",
-            "sInfoThousands": ",",
             "sLoadingRecords": "Cargando...",
-
             "oPaginate": {
                 "sFirst": "Primero",
                 "sLast": "Último",
                 "sNext": "Siguiente",
                 "sPrevious": "Anterior"
             },
-
             "oAria": {
-                "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
-                "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+                "sSortAscending": ": Activar para ordenar ascendente",
+                "sSortDescending": ": Activar para ordenar descendente"
             }
-
-        }//cerrando language
+        }
     });
 }
+
 
 function dt_listarmedicoxid2() {
-   
     let medico_id = JSON.parse(localStorage.getItem('sesion-2'));
+    let token = localStorage.getItem('token');
+
+    if (!token) {
+        window.location = urlCliente + 'login';
+        return;
+    }
 
     tabla = $('#tabla-pendientes').DataTable({
-        "lengthMenu": [5, 10, 25, 75, 100],//mostramos el menú de registros a revisar
+        "lengthMenu": [5, 10, 25, 75, 100],
         "responsive": true, "lengthChange": false, "autoWidth": false,
-        "aProcessing": true,//Activamos el procesamiento del datatables
-        "aServerSide": true,//Paginación y filtrado realizados por el servidor
-        "ajax":
-        {
-            url: urlServidor + 'citas/listardatatablexmedico/' + medico_id ,
-            type: "get",
+        "aProcessing": true,
+        "aServerSide": true,
+        "ajax": {
+            url: urlServidor + 'citas/listardatatablexmedico/' + medico_id,
+            type: "GET",
             dataType: "json",
-            beforeSend: function(xhr) {
-                // Envía el token JWT en el encabezado Authorization
-                let token = localStorage.getItem('token');
-                if (token) {
-                    xhr.setRequestHeader('Authorization', 'Bearer ' + token);
-                }
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader('Authorization', 'Bearer ' + token);
             },
-            error: function (e) {
-                console.log(e.responseText);
+            error: function (jqXHR) {
+                if (jqXHR.status === 401) {
+                    localStorage.removeItem('token');
+                    window.location = urlCliente + 'login';
+                } else {
+                    console.log('Error AJAX:', jqXHR.status, jqXHR.responseText);
+                }
             }
         },
         destroy: true,
-        "iDisplayLength": 10,//Paginación
+        "iDisplayLength": 10,
         "language": {
             "sProcessing": "Procesando...",
             "sLengthMenu": "Mostrar _MENU_ registros",
@@ -98,36 +102,22 @@ function dt_listarmedicoxid2() {
             "sInfo": "Mostrando un total de _TOTAL_ registros",
             "sInfoEmpty": "Mostrando un total de 0 registros",
             "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
-            "sInfoPostFix": "",
             "sSearch": "Buscar:",
-            "sUrl": "",
-            "sInfoThousands": ",",
             "sLoadingRecords": "Cargando...",
-
             "oPaginate": {
                 "sFirst": "Primero",
                 "sLast": "Último",
                 "sNext": "Siguiente",
                 "sPrevious": "Anterior"
             },
-
             "oAria": {
-                "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
-                "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+                "sSortAscending": ": Activar para ordenar ascendente",
+                "sSortDescending": ": Activar para ordenar descendente"
             }
-
-        }//cerrando language
+        }
     });
 }
 
-/* function atender(id){
-    // alert(id);
-    localStorage.setItem('citas_id', id); 
-    console.log(localStorage);
-  //  location.href = urlCliente + 'gestion/atendercitas'; 
-    location.href = urlCliente + 'gestion/atendercitas3'; 
-}
- */
 
 function atender(id, paciente_id) {
     // Guardar el id de la cita en el localStorage
@@ -163,7 +153,7 @@ function cancelar_cita(id){
 
 
 function cambiar_estado_cancelarcita(id){
-    $.ajax({
+   peticionJWT({
         url: urlServidor + 'citas/eliminarCitasCancelar/' + id, // Asegúrate de cambiar la ruta
         type: 'GET',
         dataType: 'json',

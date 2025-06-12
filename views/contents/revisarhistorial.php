@@ -18,7 +18,7 @@
     <div class="container-fluid">
     <div class="card">
             <div class="card-header card-dark d-flex p-0">
-                <h3 class="card-title p-3 card-dark">Rodriguez Carlos</h3>
+                <h3 class="card-title p-3 card-dark"><span id="nombre-paciente"></span></h3>
                 <ul class="nav nav-pills ml-auto p-2">
                     <li class="nav-item"><a class="nav-link active" href="#tab_1" data-toggle="tab">Consulta Externa
                             </a></li>
@@ -74,6 +74,9 @@
 <script src="<?=BASE?>views/plugins/moment/moment.min.js"></script>
 
 <script src="<?=BASE?>views/plugins/Toast/js/Toast.min.js"></script>
+<script src="<?= BASE ?>views/dist/js/scripts/peticionJWT.js"></script>
+
+
 <script src="<?=BASE?>views/dist/js/scripts/revision_historialClinico.js?ver=1.1.1.2"></script>
 
 

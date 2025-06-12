@@ -75,7 +75,7 @@ function ver_informe(id){
     console.log(idorden);
 
 
-    $.ajax({
+    peticionJWT({
         url: urlServidor + 'listar_ordenesPdf/' + idorden,
         type: 'GET',
         dataType: 'json',
@@ -94,7 +94,7 @@ function ver_informe(id){
   /*   $('#modal-detalle-resultados').modal('show');
 
 
-    $.ajax({
+    peticionJWT({
         url: urlServidor + 'ordenes/listar_ordenes/' + id,
         type: 'GET',
         dataType: 'json',
@@ -300,7 +300,7 @@ function ver_informe2(id) {
     let idorden = id;
     console.log(idorden);
     printPDF();
-    $.ajax({
+    peticionJWT({
         url: urlServidor + 'ordenes/listar_ordenes/' + id,
         type: 'GET',
         dataType: 'json',

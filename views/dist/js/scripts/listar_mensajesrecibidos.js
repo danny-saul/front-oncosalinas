@@ -72,7 +72,7 @@
     }
     
      function cargarCorreos(id) {
-        $.ajax({
+       peticionJWT({
             // la URL para la petición
             url: urlServidor + 'correos/listarsubscribe/' + id,
             // especifica si será una petición POST o GET
@@ -114,7 +114,7 @@
                 }
             };
     
-            $.ajax({
+           peticionJWT({
                 // la URL para la petición
                 url: urlServidor + 'correos/editarsubscribe',
                 type: 'POST',

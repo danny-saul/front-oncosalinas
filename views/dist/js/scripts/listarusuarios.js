@@ -7,7 +7,15 @@ function _init() {
 }
 
 function dt_listarusuarios() {
-   
+
+    let token = localStorage.getItem('token');
+
+    if (!token) {
+        window.location = urlCliente + 'login';
+        return;
+    }
+
+
     tabla = $('#tabla-usuarios').DataTable({
         "lengthMenu": [5, 10, 25, 75, 100],//mostramos el menú de registros a revisar
         "responsive": true, "lengthChange": false, "autoWidth": false,
@@ -15,18 +23,19 @@ function dt_listarusuarios() {
         "aServerSide": true,//Paginación y filtrado realizados por el servidor
         "ajax":
         {
-            url: urlServidor + 'usuario/listarusuario/' ,
+            url: urlServidor + 'usuario/listarusuario/',
             type: "get",
             dataType: "json",
-            beforeSend: function(xhr) {
-                // Envía el token JWT en el encabezado Authorization
-                let token = localStorage.getItem('token');
-                if (token) {
-                    xhr.setRequestHeader('Authorization', 'Bearer ' + token);
-                }
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader('Authorization', 'Bearer ' + token);
             },
-            error: function (e) {
-                console.log(e.responseText);
+            error: function (jqXHR) {
+                if (jqXHR.status === 401) {
+                    localStorage.removeItem('token');
+                    window.location = urlCliente + 'login';
+                } else {
+                    console.log('Error AJAX:', jqXHR.status, jqXHR.responseText);
+                }
             }
         },
         destroy: true,
@@ -62,17 +71,17 @@ function dt_listarusuarios() {
 }
 
 
-function atender(id){
-     alert(id);
-     window.location = urlServidor + 'inicio/dashboard';
-    
+function atender(id) {
+    alert(id);
+    window.location = urlServidor + 'inicio/dashboard';
+
 }
 
-function editar_usuario(id){
+function editar_usuario(id) {
     // alert(id);
-    localStorage.setItem('usuario_id', id); 
+    localStorage.setItem('usuario_id', id);
     console.log(localStorage);
-    location.href = urlCliente + 'usuario/editarUsuario'; 
+    location.href = urlCliente + 'usuario/editarUsuario';
 }
 
 

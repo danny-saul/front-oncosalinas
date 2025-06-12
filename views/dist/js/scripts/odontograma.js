@@ -141,7 +141,7 @@ jQuery(function(){
        
 
         let id = localStorage.getItem('citas_id');
-        $.ajax({
+       peticionJWT({
             url: urlServidor + 'citas/listarcitasxid/' + id,
             type: 'GET',
             dataType: 'json',
@@ -284,7 +284,7 @@ jQuery(function(){
     
 
     function guardandoOodontograma(json){
-        $.ajax({
+       peticionJWT({
             url: urlServidor + 'odontograma/guardar',
             type: 'POST',
             data: 'data=' + JSON.stringify(json),

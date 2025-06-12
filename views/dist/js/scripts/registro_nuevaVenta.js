@@ -19,7 +19,7 @@ function _init() {
 
 
 function generarNumerosVentas() {
-    $.ajax({
+    peticionJWT({
       url: urlServidor + 'ventas/generar_aleartorio_ventas/Tabla_Ventas',
       type: 'GET',
       dataType: 'json',
@@ -55,7 +55,7 @@ function generarNumerosVentas() {
       }
     }
   
-    $.ajax({
+    peticionJWT({
       url: urlServidor + 'ventas/aumentarAleartoriosVentas',
       type: 'POST',
       data: 'data=' + JSON.stringify(json),
@@ -151,7 +151,7 @@ function datatablelistarpaciente() {
 
   function seleccionar(id) {
 
-    $.ajax({
+    peticionJWT({
       // la URL para la petición
       url: urlServidor + 'ventas/listarclientexid/' + id,
       // especifica si será una petición POST o GET
@@ -250,7 +250,7 @@ function datatablelistarpaciente() {
 
 
 
-    $.ajax({
+    peticionJWT({
       // la URL para la petición
       url: urlServidor + 'ventas/listarproductoid/' + id,
       // especifica si será una petición POST o GET
@@ -291,7 +291,7 @@ function datatablelistarpaciente() {
 
 
     function select_productos() {
-        $.ajax({
+        peticionJWT({
           // la URL para la petición
           url: urlServidor + 'ventas/listar_producto',
           // especifica si será una petición POST o GET
@@ -599,7 +599,7 @@ function datatablelistarpaciente() {
         return json;
       }
       function ajax_guardar(json) {
-        $.ajax({
+        peticionJWT({
           // la URL para la petición
           url: urlServidor + 'ventas/guardarventas',
           // especifica si será una petición POST o GET

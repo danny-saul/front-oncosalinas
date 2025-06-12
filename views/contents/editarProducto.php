@@ -317,6 +317,9 @@
 </div>
 </div>
 
+
+<script src="<?= BASE ?>views/dist/js/scripts/peticionJWT.js"></script>
+
 <script src="<?=BASE?>views/dist/js/scripts/editar_Productos.js"></script>
 
 

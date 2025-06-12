@@ -9,7 +9,7 @@ $(function(){
     }
 
     function cargarRoles(){
-        $.ajax({
+       peticionJWT({
             // la URL para la petición
             url : urlServidor + 'rol/listar',
             // especifica si será una petición POST o GET
@@ -52,7 +52,7 @@ $(function(){
     }
 
     function cargarMenus(){
-        $.ajax({
+       peticionJWT({
             // la URL para la petición
             url : urlServidor + 'permiso/lista',
             // especifica si será una petición POST o GET
@@ -125,7 +125,7 @@ $(function(){
     }
 
     function ajax_rol_permiso(id){
-        $.ajax({
+       peticionJWT({
             // la URL para la petición
             url : urlServidor + 'permiso/get/' + id,
             // especifica si será una petición POST o GET
@@ -201,7 +201,7 @@ function ajax_permiso(menu_id,permiso,permiso_id,rol_id){
         permiso: {menu_id, permiso, permiso_id, rol_id}
     };
 
-    $.ajax({
+   peticionJWT({
         // la URL para la petición
         url : urlServidor + 'permiso/otorgar',
         // especifica si será una petición POST o GET

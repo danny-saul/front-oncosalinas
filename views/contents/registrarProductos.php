@@ -331,6 +331,10 @@
 </div>
 </div>
 
+
+<script src="<?= BASE ?>views/dist/js/scripts/peticionJWT.js"></script>
+
+
 <script src="<?=BASE?>views/dist/js/scripts/registro_Productos.js"></script>
 
 

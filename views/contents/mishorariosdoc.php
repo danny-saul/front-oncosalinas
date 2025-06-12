@@ -36,15 +36,11 @@
 
                                 <div class="row">
                                     <div class="col-md-6">
-
-                                        <i class="fas fa-user-md"></i>
-                                        <label>Seleccionar Doctor</label>
-                                        <select class="form-control" id="select-doctor" name="doctor_id" required>
-                                            <!-- Opciones llenas dinámicamente -->
-                                        </select>
-
-
-
+                                        <div class="form-group">
+                                        <label>Medico</label>
+                                        <input type="text" readonly class="form-control" id="usuario-md"
+                                            placeholder="Nombre del medico">
+                                    </div>
                                     </div>
 
                                     <div class="col-6">
@@ -141,13 +137,13 @@
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
 <script>
-$(function() {
-    $('.dia-semana').change(function() {
-        const dia = $(this).val();
-        if (this.checked) {
-            // Agregar inputs para ese día si no existen
-            if ($(`.bloque-dia[data-dia="${dia}"]`).length === 0) {
-                $('#horarios-por-dia').append(`
+    $(function() {
+        $('.dia-semana').change(function() {
+            const dia = $(this).val();
+            if (this.checked) {
+                // Agregar inputs para ese día si no existen
+                if ($(`.bloque-dia[data-dia="${dia}"]`).length === 0) {
+                    $('#horarios-por-dia').append(`
           <div class="bloque-dia border rounded p-3 mb-3" data-dia="${dia}">
             <h5>${dia}</h5>
             <div class="row">
@@ -170,25 +166,25 @@ $(function() {
             </div>
           </div>
         `);
+                }
+            } else {
+                // Quitar inputs si se desmarca el día
+                $(`.bloque-dia[data-dia="${dia}"]`).remove();
             }
-        } else {
-            // Quitar inputs si se desmarca el día
-            $(`.bloque-dia[data-dia="${dia}"]`).remove();
-        }
-    });
+        });
 
 
-    // Opcional: Validar antes de enviar
-    $('#form-horario-doctor').submit(function(e) {
-        // Validar que haya al menos un día seleccionado
-        if ($('.dia-semana:checked').length === 0) {
-            alert('Seleccione al menos un día de atención');
-            e.preventDefault();
-            return;
-        }
-        // Aquí podrías agregar más validaciones si quieres
+        // Opcional: Validar antes de enviar
+        $('#form-horario-doctor').submit(function(e) {
+            // Validar que haya al menos un día seleccionado
+            if ($('.dia-semana:checked').length === 0) {
+                alert('Seleccione al menos un día de atención');
+                e.preventDefault();
+                return;
+            }
+            // Aquí podrías agregar más validaciones si quieres
+        });
     });
-});
 </script>
 
 <script src="<?= BASE ?>views/plugins/datatables/jquery.dataTables.min.js"></script>
@@ -202,6 +198,7 @@ $(function() {
 <script src="<?= BASE ?>views/plugins/moment/moment.min.js"></script>
 
 <script src="<?= BASE ?>views/plugins/Toast/js/Toast.min.js"></script>
+
 <script src="<?= BASE ?>views/dist/js/scripts/peticionJWT.js"></script>
 
-<script src="<?=BASE?>views/dist/js/scripts/gestionhorarioAdmin.js?ver=1.1.1.3"></script>
+<script src="<?= BASE ?>views/dist/js/scripts/gestionhorariodoctor.js?ver=1.1.1.3"></script>

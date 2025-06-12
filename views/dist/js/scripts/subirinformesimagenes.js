@@ -28,7 +28,7 @@ function _init() {
 function cargarOrden() {
     let id = JSON.parse(localStorage.getItem('orden_id'));
 
-    $.ajax({
+    peticionJWT({
         url: urlServidor + 'ordenes/listarorden/' + id,
         type: 'GET',
         dataType: 'json',
@@ -118,7 +118,7 @@ function editandoOrdenModal() {
 
         console.log(json);
 
-        $.ajax({
+        peticionJWT({
             // la URL para la petición
             url: urlServidor + 'ordenes/editar',
             type: 'POST',
@@ -171,7 +171,7 @@ function editandoOrdenModal() {
             let formData = new FormData();
             formData.append('fichero', documento);
 
-            $.ajax({
+            peticionJWT({
                 // la URL para la petición
                 url: urlServidor + 'ordenes/subirestudio',
                 // especifica si será una petición POST o GET
@@ -273,7 +273,7 @@ function agregarDiagnosticos1() {
             });
 
         } else {
-            $.ajax({
+            peticionJWT({
                 // la URL para la petición
                 url: urlServidor + "diagnostico/listar/" + diagnosticocie10_id,
 

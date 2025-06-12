@@ -14,6 +14,15 @@ function dt_listarmedicoxid() {
    
  //   let medico_id = JSON.parse(localStorage.getItem('sesion-2'));
 
+  let token = localStorage.getItem('token');
+
+    if (!token) {
+        window.location = urlCliente + 'login';
+        return;
+    }
+
+
+
     tabla = $('#tabla-pendientes').DataTable({
         "lengthMenu": [5, 10, 25, 75, 100],//mostramos el menú de registros a revisar
         "responsive": true, "lengthChange": false, "autoWidth": false,
@@ -26,13 +35,17 @@ function dt_listarmedicoxid() {
             dataType: "json",
             beforeSend: function(xhr) {
                 // Envía el token JWT en el encabezado Authorization
-                let token = localStorage.getItem('token');
-                if (token) {
-                    xhr.setRequestHeader('Authorization', 'Bearer ' + token);
-                }
+                
+                xhr.setRequestHeader('Authorization', 'Bearer ' + token);
+                
             },
-            error: function (e) {
-                console.log(e.responseText);
+              error: function (jqXHR) {
+                if (jqXHR.status === 401) {
+                    localStorage.removeItem('token');
+                    window.location = urlCliente + 'login';
+                } else {
+                    console.log('Error AJAX:', jqXHR.status, jqXHR.responseText);
+                }
             }
         },
         destroy: true,

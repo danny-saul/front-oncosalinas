@@ -475,6 +475,10 @@
 </div>
 </div>
  
+
+<script src="<?= BASE ?>views/dist/js/scripts/peticionJWT.js"></script>
+
+
 <script src="<?=BASE?>views/dist/js/scripts/registrar_usuario.js?ver=1.1.1.2"> </script>
 
 <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />

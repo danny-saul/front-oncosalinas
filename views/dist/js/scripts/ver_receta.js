@@ -11,7 +11,7 @@ $(function(){
     function storage_citas() {
         let id = localStorage.getItem('citas_id');
       
-        $.ajax({
+        peticionJWT({
           // la URL para la petición
           url: urlServidor + 'citas/listarcitasxid/' + id,
           // especifica si será una petición POST o GET
@@ -45,7 +45,7 @@ $(function(){
 
     function cargar_factura(){
         let citas_id = localStorage.getItem('citas_id');
-        $.ajax({
+        peticionJWT({
             // la URL para la petición
             url : urlServidor + 'citas/listarcitasxid/' + citas_id,
             // especifica si será una petición POST o GET

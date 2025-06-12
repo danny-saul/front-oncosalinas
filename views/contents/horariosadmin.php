@@ -28,23 +28,19 @@
                         </div>
                     </div>
 
-
+           
                     <form id="form-horario-doctor" method="POST">
 
                         <div class="mt-1">
                             <div class="card-body">
 
                                 <div class="row">
-                                    <div class="col-md-6">
-
+                                    <div class="col-6">
                                         <i class="fas fa-user-md"></i>
                                         <label>Seleccionar Doctor</label>
                                         <select class="form-control" id="select-doctor" name="doctor_id" required>
                                             <!-- Opciones llenas dinámicamente -->
                                         </select>
-
-
-
                                     </div>
 
                                     <div class="col-6">
@@ -54,8 +50,6 @@
                                             <option value="">Seleccione un Intervalo</option>
                                             <option value="20">20 min</option>
                                             <option value="30">30 min</option>
-                                            <option value="40">40 min</option>
-                                            <option value="60">60 min</option>
                                         </select>
                                     </div>
                                 </div>
@@ -133,7 +127,7 @@
 </div>
 
 
-
+ 
 
 
 
@@ -142,12 +136,12 @@
 
 <script>
 $(function() {
-    $('.dia-semana').change(function() {
-        const dia = $(this).val();
-        if (this.checked) {
-            // Agregar inputs para ese día si no existen
-            if ($(`.bloque-dia[data-dia="${dia}"]`).length === 0) {
-                $('#horarios-por-dia').append(`
+  $('.dia-semana').change(function() {
+    const dia = $(this).val();
+    if (this.checked) {
+      // Agregar inputs para ese día si no existen
+      if ($(`.bloque-dia[data-dia="${dia}"]`).length === 0) {
+        $('#horarios-por-dia').append(`
           <div class="bloque-dia border rounded p-3 mb-3" data-dia="${dia}">
             <h5>${dia}</h5>
             <div class="row">
@@ -170,38 +164,39 @@ $(function() {
             </div>
           </div>
         `);
-            }
-        } else {
-            // Quitar inputs si se desmarca el día
-            $(`.bloque-dia[data-dia="${dia}"]`).remove();
-        }
-    });
+      }
+    } else {
+      // Quitar inputs si se desmarca el día
+      $(`.bloque-dia[data-dia="${dia}"]`).remove();
+    }
+  });
 
 
-    // Opcional: Validar antes de enviar
-    $('#form-horario-doctor').submit(function(e) {
-        // Validar que haya al menos un día seleccionado
-        if ($('.dia-semana:checked').length === 0) {
-            alert('Seleccione al menos un día de atención');
-            e.preventDefault();
-            return;
-        }
-        // Aquí podrías agregar más validaciones si quieres
-    });
+  // Opcional: Validar antes de enviar
+  $('#form-horario-doctor').submit(function(e) {
+    // Validar que haya al menos un día seleccionado
+    if ($('.dia-semana:checked').length === 0) {
+      alert('Seleccione al menos un día de atención');
+      e.preventDefault();
+      return;
+    }
+    // Aquí podrías agregar más validaciones si quieres
+  });
 });
 </script>
 
-<script src="<?= BASE ?>views/plugins/datatables/jquery.dataTables.min.js"></script>
-<script src="<?= BASE ?>views/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
-<script src="<?= BASE ?>views/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
-<script src="<?= BASE ?>views/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
-<script src="<?= BASE ?>views/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
-<script src="<?= BASE ?>views/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
-<script src="<?= BASE ?>views/plugins/jszip/jszip.min.js"></script>
-<script src="<?= BASE ?>views/plugins/pdfmake/pdfmake.min.js"></script>
-<script src="<?= BASE ?>views/plugins/moment/moment.min.js"></script>
+<script src="<?=BASE?>views/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="<?=BASE?>views/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script src="<?=BASE?>views/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+<script src="<?=BASE?>views/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+<script src="<?=BASE?>views/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+<script src="<?=BASE?>views/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+<script src="<?=BASE?>views/plugins/jszip/jszip.min.js"></script>
+<script src="<?=BASE?>views/plugins/pdfmake/pdfmake.min.js"></script>
+<script src="<?=BASE?>views/plugins/moment/moment.min.js"></script>
 
-<script src="<?= BASE ?>views/plugins/Toast/js/Toast.min.js"></script>
+<script src="<?=BASE?>views/plugins/Toast/js/Toast.min.js"></script>
+
 <script src="<?= BASE ?>views/dist/js/scripts/peticionJWT.js"></script>
 
-<script src="<?=BASE?>views/dist/js/scripts/gestionhorarioAdmin.js?ver=1.1.1.3"></script>
+<script src="<?=BASE?>views/dist/js/scripts/gestionhorariodoctor.js?ver=1.1.1.3"></script>
