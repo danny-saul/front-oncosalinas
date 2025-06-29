@@ -2304,7 +2304,7 @@ function listar_resumen() {
         $('#id-historia').text(response.paciente.id);
 
         // Ordenar las citas por fecha descendente
-        response.citas.sort((a, b) => new Date(b.fecha) - new Date(a.fecha));
+        response.citas.sort((a, b) => new Date(b.fecha_hora) - new Date(a.fecha_hora));
 
         response.citas.forEach(cita => {
           div += `

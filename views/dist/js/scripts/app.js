@@ -215,6 +215,7 @@ function datos() {
     $('#sesion-rol').html(rol);
     $('#rol').html(rol);
     $('#usuario').html(usuario);
+    $('#usuario2').html(usuario);
 
 
 

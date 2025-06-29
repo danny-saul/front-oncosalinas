@@ -42,20 +42,20 @@
             <div class="col-sm-6">
                 <!--  <h1 class="m-0">Administrador </h1> -->
 
-                <a class="btn btn-warning btn-lg" href="<?= BASE ?>inicio/citas" data-backdrop="static"
+          <!--       <a class="btn btn-warning btn-lg" href="<?= BASE ?>inicio/citas" data-backdrop="static"
                     style=" margin-bottom: 13px" data-keyboard="false"><i class="fas fa-level-up-alt"></i> ATENDER CITAS
                     -> CLIC
-                    AQUI</a>
+                    AQUI</a> -->
 
-                <a class="btn btn-danger btn-lg" data-backdrop="static" data-toggle="modal" style=" margin-bottom: 13px"
+           <!--      <a class="btn btn-danger btn-lg" data-backdrop="static" data-toggle="modal" style=" margin-bottom: 13px"
                     data-target="#modal-instrucciones" data-keyboard="false"><i class="fas fa-level-up-alt"></i>
                     INSTRUCCIONES -> CLIC
-                    AQUI</a>
+                    AQUI</a> -->
 
 
-                <button class="btn btn-info mb-3 d-none" data-bs-toggle="modal" data-bs-target="#guiaCalendario">
+          <!--       <button class="btn btn-info mb-3 d-none" data-bs-toggle="modal" data-bs-target="#guiaCalendario">
                     <i class="fas fa-info-circle"></i> Ver guía de uso
-                </button>
+                </button> -->
 
 
 

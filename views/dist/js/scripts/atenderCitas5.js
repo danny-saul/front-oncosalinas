@@ -112,7 +112,7 @@ function listar_resumen() {
    */
 
         // Ordenar las citas por fecha descendente
-        response.citas.sort((a, b) => new Date(b.fecha) - new Date(a.fecha));
+        response.citas.sort((a, b) => new Date(b.fecha_hora) - new Date(a.fecha_hora));
 
         // Verificar si hay citas atendidas
         /*         if (response.citas.length === 0) {

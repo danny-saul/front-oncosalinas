@@ -18,7 +18,7 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1 class="m-0">Medico</h1>
+                <h1 class="m-0">Citas Pendientes</h1>
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
@@ -32,15 +32,15 @@
 
 <div class="content">
     <div class="container-fluid">
-    <a class="btn btn-success btn-lg"  href="<?=BASE?>inicio/citasatendidas"
+<!--     <a class="btn btn-success btn-lg"  href="<?=BASE?>inicio/citasatendidas"
             data-backdrop="static" style=" margin-bottom: 13px" data-keyboard="false"><i class="fa fa-check mr-4"></i>IR A CITAS ATENDIDAS</a>
- 
+  -->
   <!--    <a class="btn btn-info btn-lg"  href="<?=BASE?>inicio/crearCita"
             data-backdrop="static" style=" margin-bottom: 13px" data-keyboard="false"><i class="fa fa-check mr-4"></i>CREAR CONSULTAS</a>
  -->
-    <a class="btn btn-info btn-lg"  href="<?=BASE?>gestion/asignarcitas"
+<!--     <a class="btn btn-info btn-lg"  href="<?=BASE?>gestion/asignarcitas"
             data-backdrop="static" style=" margin-bottom: 13px" data-keyboard="false"><i class="fa fa-check mr-4"></i>AGENDAR CITAS</a>
-
+ -->
         <div class="card">
             <div class="card-header card-dark d-flex p-0"  >
                 <h3 class="card-title p-3 card-dark">Detalle de la Cita Medica</h3>

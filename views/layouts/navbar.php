@@ -13,25 +13,35 @@
                 </li>
                 <!-- Home link -->
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="index3.html" class="nav-link" style="color: #333;">
-                        Home
+                    <a href="<?= BASE ?>gestion/asignarcitas" class="nav-link" style="color: #333;">
+                        Agendar Citas
                     </a>
                 </li>
                 <!-- Contact link -->
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a class="nav-link" style="color: #333;">
-                        Contact
+                    <a href="<?= BASE ?>inicio/citas" class="nav-link" style="color: #333;">
+                        Atender Citas
                     </a>
                 </li>
 
-                 <!-- Mensaje de advertencia con cronómetro -->
-   <li class="nav-item d-none d-sm-inline-block">
-    <span class="nav-link text-danger font-weight-bold" style="color: red;">
-        ¡Su suscripción caduca en <span id="contador-suscripcion">cargando...</span>!
-        Cancele su pago y evite interrupciones.
-    </span>
-</li>
+                <li class="nav-item d-none d-sm-inline-block">
+                    <a href="<?= BASE ?>gestion/registrarpacientes" class="nav-link" style="color: #333;">
+                        Registrar Pacientes
+                    </a>
+                </li>
 
+                <li class="nav-item d-none d-sm-inline-block">
+                    <a href="<?= BASE ?>inicio/citasatendidas" class="nav-link" style="color: #333;">
+                        Citas Atendidas
+                    </a>
+                </li>
+
+             <!--    <li class="nav-item d-none d-sm-inline-block">
+                    <span class="nav-link text-danger font-weight-bold" style="color: red;">
+                        ¡Su suscripción caduca en <span id="contador-suscripcion">cargando...</span>!
+                        Cancele su pago y evite interrupciones.
+                    </span>
+                </li> -->
             </ul>
 
             <!-- Right navbar links -->
@@ -39,8 +49,10 @@
                 <!-- User account dropdown -->
                 <li class="nav-item dropdown">
                     <a class="nav-link" data-toggle="dropdown" href="#">
-                      <i class="fas fa-user-circle" style="font-size: 1.5em;"></i> 
-                 <!--       <div class="media" id="sesion-img3">
+                        <i class="fas fa-user-circle" style="font-size: 1.5em;"></i>
+                        <span id="sesion-usuario"></span>
+
+                        <!--       <div class="media" id="sesion-img3">
                                          
                                     </div> -->
                     </a>
@@ -123,25 +135,27 @@
         }
         </style>
 
-<script>
-function actualizarContadorDesdeBaseJS() {
-    const fechaVencimiento = new Date(FechaVencimientoSistema).getTime();
-    const ahora = new Date().getTime();
-    const tiempoRestante = fechaVencimiento - ahora;
 
-    if (tiempoRestante <= 0) {
-        document.getElementById("contador-suscripcion").innerText = "00:00:00";
-        return;
-    }
 
-    const dias = Math.floor(tiempoRestante / (1000 * 60 * 60 * 24));
-    const horas = Math.floor((tiempoRestante % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutos = Math.floor((tiempoRestante % (1000 * 60 * 60)) / (1000 * 60));
-    const segundos = Math.floor((tiempoRestante % (1000 * 60)) / 1000);
+        <script>
+        function actualizarContadorDesdeBaseJS() {
+            const fechaVencimiento = new Date(FechaVencimientoSistema).getTime();
+            const ahora = new Date().getTime();
+            const tiempoRestante = fechaVencimiento - ahora;
 
-    document.getElementById("contador-suscripcion").innerText =
-        `${dias} dias ${horas} horas ${minutos} minutos ${segundos} segundos`;
-}
+            if (tiempoRestante <= 0) {
+                document.getElementById("contador-suscripcion").innerText = "00:00:00";
+                return;
+            }
 
-setInterval(actualizarContadorDesdeBaseJS, 1000);
-</script>
+            const dias = Math.floor(tiempoRestante / (1000 * 60 * 60 * 24));
+            const horas = Math.floor((tiempoRestante % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutos = Math.floor((tiempoRestante % (1000 * 60 * 60)) / (1000 * 60));
+            const segundos = Math.floor((tiempoRestante % (1000 * 60)) / 1000);
+
+            document.getElementById("contador-suscripcion").innerText =
+                `${dias} dias ${horas} horas ${minutos} minutos ${segundos} segundos`;
+        }
+
+        setInterval(actualizarContadorDesdeBaseJS, 1000);
+        </script>
